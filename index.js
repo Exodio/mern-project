@@ -6,14 +6,15 @@ const connectionString = 'mongodb+srv://exodio:13241324@cluster0.rspdu.mongodb.n
 
 const mongoose = require('mongoose');
 
-mongoose.connect(connectionString, { useNewUrlParser: true })
-.then(() => console.log('DB Connected Successful!'))
-.catch((err) => console.log(err));
+mongoose.connect(connectionString, {
+        useNewUrlParser: true
+    })
+    .then(() => console.log('DB Connected Successful!'))
+    .catch((err) => console.log(err));
 
 
 app.get('/', (req, res) => {
     res.send("Home page");
 });
 
-app.listen(port);
 app.listen(port);
