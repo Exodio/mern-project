@@ -4,8 +4,8 @@
   "description": "react-travel-app",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
-    "backend": "nodemon index.js"
+    "start": "node server/index.js",
+    "backend": "nodemon server/index.js"
   },
   "author": "exodio",
   "license": "ISC",
