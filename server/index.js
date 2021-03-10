@@ -6,7 +6,7 @@ const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 
 const config = require("./config/key");
-const { User } = require("./models/user");
+const { User } = require("./models/User");
 const { auth } = require("./middleware/auth");
 
 mongoose
@@ -72,9 +72,7 @@ app.get("/api/user/logout", auth, (req, res) => {
   });
 });
 
-
 const port = process.env.PORT || 5000;
 app.listen(port, () => {
   console.log(`Server is running at ${port}...!`);
 });
-
