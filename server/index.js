@@ -10,7 +10,7 @@ const { User } = require("./models/User");
 const { auth } = require("./middleware/auth");
 
 mongoose
-  .connect(config.mongoURI, { useNewUrlParser: true })
+  .connect(config.mongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log("DB Connected Successful!"))
   .catch((err) => console.log(err));
 

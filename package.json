@@ -1,7 +1,7 @@
 {
   "name": "mern-boiler-plate",
   "version": "1.0.0",
-  "description": "react-travel-app",
+  "description": "react-app",
   "main": "index.js",
   "engine": {
     "node": "14.15.4",
