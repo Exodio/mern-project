@@ -7,7 +7,7 @@ class index extends Component {
                 This is the About Page Route
             </div>
         );
-    }
-}
+    };
+};
 
 export default index;
