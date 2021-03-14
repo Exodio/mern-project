@@ -4,6 +4,8 @@ import { connect } from "react-redux";
 
 import { loginUser } from "../actions/user_actions";
 
+import { Link } from "react-router-dom";
+
 class RegisterLogin extends Component {
   state = {
     email: "",
@@ -13,7 +15,7 @@ class RegisterLogin extends Component {
 
   handleChange = (event) => {
     this.setState({ [event.target.name]: event.target.value });
-  }
+  };
 
   submitForm = (event) => {
     event.preventDefault();
@@ -26,27 +28,35 @@ class RegisterLogin extends Component {
     if (this.isFormValid(this.state)) {
       this.setState({ errors: [] });
 
-      this.props.dispatch(loginUser(dataToSubmit)).then((response) => {
-        console.log(response);
+      this.props
+        .dispatch(loginUser(dataToSubmit))
+        .then((response) => {
+          console.log(response);
 
-        if (response.payload.loginSuccess) {
-          this.props.history.push("/");
-        } else {
+          if (response.payload.loginSuccess) {
+            this.props.history.push("/");
+          } else {
+            this.setState({
+              errors: this.state.errors.concat(
+                "Failed to login, please check your Email or Password!"
+              ),
+            });
+          }
+        })
+        .catch((err) => {
           this.setState({
-            errors: this.state.errors.concat(
-              "Failed to login, please check your Email or Password!"
-            ),
+            errors: this.state.errors.concat(err),
           });
-        }
-      });
+        });
+        
     } else {
       this.setState({
         errors: this.state.errors.concat(
-          "Form is not valid, please check your input fields!"
+          "Invalid data, please check your input fields!"
         ),
       });
     }
-  }
+  };
 
   isFormValid = ({ email, password }) => email && password;
 
@@ -58,6 +68,7 @@ class RegisterLogin extends Component {
         <h2>Login</h2>
         <div className="row">
           <form className="col s12">
+            
             <div className="row">
               <div className="input-field col s12">
                 <input
@@ -69,10 +80,10 @@ class RegisterLogin extends Component {
                   className="validate"
                 />
 
-                <label htmlFor="email">Email</label>
+                <label className="active" htmlFor="email">Email</label>
                 <span
                   className="helper-text"
-                  data-error="Incorrect email, please type a right type email"
+                  data-error="wrong"
                   data-success="right"
                 />
               </div>
@@ -89,10 +100,10 @@ class RegisterLogin extends Component {
                   className="validate"
                 />
 
-                <label htmlFor="email">Password</label>
+                <label className="active" htmlFor="email">Password</label>
                 <span
                   className="helper-text"
-                  data-error="Incorrect password, please try again"
+                  data-error="wrong"
                   data-success="right"
                 />
               </div>
@@ -103,7 +114,7 @@ class RegisterLogin extends Component {
             )}
 
             <div className="row">
-              <div className="col 12">
+              <div className="col s12">
                 <button
                   className="btn waves-effect red lighten-2"
                   type="submit"
@@ -111,7 +122,16 @@ class RegisterLogin extends Component {
                   onClick={this.submitForm}
                 >
                   Login
-                </button>
+                </button> &nbsp; &nbsp;
+                <Link to="/register">
+                  <button
+                    className="btn waves-effect red lighten-2"
+                    type="submit"
+                    name="action"
+                  >
+                    Sign up
+                  </button>
+                </Link>
               </div>
             </div>
           </form>
