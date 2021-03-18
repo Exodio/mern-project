@@ -30,7 +30,12 @@ function UploadVideoPage() {
   const [DescriptionVideo, setDescription] = useState("");
   const [CategoryVideo, setCategories] = useState("Film & Animation");
   const [PrivacyVideo, setPrivacy] = useState(0);
+
   const [FilePath, setFilePath] = useState("");
+
+  const [Duration, setDuration] = useState("");
+  const [Thumbnail, setThumbnail] = useState("");
+
 
   const handleChangeTitle = (event) => {
     setTitle(event.currentTarget.value);
@@ -71,6 +76,16 @@ function UploadVideoPage() {
 
         setFilePath(response.data.filePath);
 
+        axios.post("/api/video/createThumbnail", fileData)
+        .then(response => {
+          if (response.data.success) {
+            setDuration(response.data.fileDuration);
+            setThumbnail(response.data.thumbsFilePath);
+          } else {
+            alert("Failed to create video thumbnail");
+          }
+        })
+
       } else {
         alert("Failed to save the video in server");
       }
@@ -85,11 +100,7 @@ function UploadVideoPage() {
 
       <Form onSubmit={onSubmit}>
         <div style={{ display: "flex", justifyContent: "space-between" }}>
-
-          <Dropzone
-          onDrop={onDrop}
-           multiple={false}
-            maxSize={800000000}>
+          <Dropzone onDrop={onDrop} multiple={false} maxSize={800000000}>
             {({ getRootProps, getInputProps }) => (
               <div
                 style={{
@@ -107,6 +118,13 @@ function UploadVideoPage() {
               </div>
             )}
           </Dropzone>
+
+          {Thumbnail !== "" && (
+            <div>
+              <img src={`http://localhost:5000/${Thumbnail}`} alt="thumbnail" />
+            </div>
+          )}
+
         </div>
 
         <br />
@@ -142,9 +160,8 @@ function UploadVideoPage() {
         <br />
         <br />
         <Button type="primary" size="large" onClick={onSubmit}>
-           Submit
-        </Button>     
-
+          Submit
+        </Button>
       </Form>
     </div>
   );
