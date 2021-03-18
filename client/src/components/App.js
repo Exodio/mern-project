@@ -1,7 +1,9 @@
 import React, { Suspense } from "react";
+// Routing for the application
 import { Route, Switch } from "react-router-dom";
+// Authentication for the application
 import Auth from "../hoc/auth";
-// Project Pages for this application
+// View pages for the application
 import NavBar from "../components/views/NavBar/NavBar";
 import LandingPage from "../components/views/LandingPage/LandingPage";
 import LoginPage from "../components/views/LoginPage/LoginPage";
@@ -18,11 +20,7 @@ function App() {
           <Route exact path="/" component={Auth(LandingPage, null)} />
           <Route exact path="/login" component={Auth(LoginPage, false)} />
           <Route exact path="/register" component={Auth(RegisterPage, false)} />
-          <Route
-            exact
-            path="/video/upload"
-            component={Auth(UploadVideoPage, true)}
-          />
+          <Route exact path="/video/upload" component={Auth(UploadVideoPage, true)}/>
         </Switch>
       </div>
       <Footer />

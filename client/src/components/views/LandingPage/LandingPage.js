@@ -1,4 +1,5 @@
 import React from "react";
+
 import { FaCode } from "react-icons/fa";
 
 function LandingPage() {
@@ -10,7 +11,7 @@ function LandingPage() {
         <span style={{ fontSize: "2rem" }}>Let's Start Coding!</span>
       </div>
       <div style={{ float: "right" }}>
-        Boiler Plate Landing Page
+        Boiler Plate Landing Page ~
       </div>
     </>
   );

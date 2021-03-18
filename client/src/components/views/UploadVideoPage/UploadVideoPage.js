@@ -1,5 +1,7 @@
 import React, { useState } from "react";
+
 import { Typography, Button, Form, Input, Icon } from "antd";
+
 import Dropzone from "react-dropzone";
 
 const { Title } = Typography;
@@ -9,7 +11,6 @@ const Private = [
   { value: 0, label: "Private" },
   { value: 1, label: "Public" },
 ];
-
 const Catogory = [
   { value: 0, label: "Film & Animation" },
   { value: 0, label: "Autos & Vehicles" },
@@ -21,8 +22,8 @@ const Catogory = [
 function UploadVideoPage() {
   const [title, setTitle] = useState("");
   const [Description, setDescription] = useState("");
-  const [privacy, setPrivacy] = useState(0);
   const [Categories, setCategories] = useState("Film & Animation");
+  const [privacy, setPrivacy] = useState(0);
 
   const handleChangeTitle = (event) => {
     setTitle(event.currentTarget.value);
@@ -32,12 +33,12 @@ function UploadVideoPage() {
     setDescription(event.currentTarget.value);
   }
 
-  const handleChangeOne = (event) => {
-    setPrivacy(event.currentTarget.value);
-  };
-
   const handleChangeTwo = (event) => {
     setCategories(event.currentTarget.value);
+  };
+  
+  const handleChangeOne = (event) => {
+    setPrivacy(event.currentTarget.value);
   };
 
   const onSubmit = () => {};
@@ -52,6 +53,7 @@ function UploadVideoPage() {
       <Form onSubmit={onSubmit}>
         
         <div style={{ display: "flex", justifyContent: "space-between" }}>
+
           <Dropzone multiple={false} maxSize={800000000}>
             {({ getRootProps, getInputProps }) => (
               <div
@@ -70,6 +72,7 @@ function UploadVideoPage() {
               </div>
             )}
           </Dropzone>
+          
         </div>
 
         <br /><br />

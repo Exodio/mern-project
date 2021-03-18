@@ -1,9 +1,15 @@
 import React from "react";
+
 import { Formik } from "formik";
+
 import * as Yup from "yup";
+
 import moment from "moment";
+
 import { registerUser } from "../../_actions/user_actions";
+
 import { Form, Input, Button } from "antd";
+
 import { useDispatch } from "react-redux";
 
 const formItemLayout = {
@@ -16,7 +22,6 @@ const formItemLayout = {
     sm: { span: 16 },
   },
 };
-
 const tailFormItemLayout = {
   wrapperCol: {
     xs: {
@@ -44,18 +49,27 @@ function RegisterPage(props) {
         confirmPassword: "",
       }}
 
-      validationSchema={Yup.object().shape({
-        name: Yup.string().required("Name is required"),
-        lastName: Yup.string().required("Last Name is required"),
-        email: Yup.string()
-          .email("Email is invalid")
-          .required("Email is required"),
-        password: Yup.string()
-          .min(6, "Password must be at least 6 characters")
-          .required("Password is required"),
-        confirmPassword: Yup.string()
-          .oneOf([Yup.ref("password"), null], "Passwords must match")
-          .required("Confirm Password is required"),
+      validationSchema={Yup
+        .object()
+        .shape({
+        name: Yup
+        .string()
+        .required("Name is required"),
+        lastName: Yup
+        .string()
+        .required("Last Name is required"),
+        email: Yup
+        .string()
+        .email("Email is invalid")
+        .required("Email is required"),
+        password: Yup
+        .string()
+        .min(6, "Password must be at least 6 characters long")
+        .required("Password is required"),
+        confirmPassword: Yup
+        .string()
+        .oneOf([Yup.ref("password"), null], "Passwords must match")
+        .required("Confirm Password is required"),
       })}
 
       onSubmit={(values, { setSubmitting }) => {
@@ -80,6 +94,7 @@ function RegisterPage(props) {
         }, 500);
       }}
     >
+
       {(props) => {
         const {
           values,
@@ -93,7 +108,7 @@ function RegisterPage(props) {
 
         return (
           <div className="app">
-            <h2>Sign up</h2>
+            <h2>Sign Up</h2>
             <Form
               style={{ minWidth: "375px" }}
               {...formItemLayout}

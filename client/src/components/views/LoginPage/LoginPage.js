@@ -1,10 +1,17 @@
 import React, { useState } from "react";
+
 import { loginUser } from "../../_actions/user_actions";
+
 import { Form, Icon, Input, Button, Checkbox, Typography } from "antd";
+
 import { useDispatch } from "react-redux";
+
 import { Formik } from "formik";
+
 import * as Yup from "yup";
+
 import { withRouter } from "react-router-dom";
+
 
 const { Title } = Typography;
 
@@ -13,6 +20,9 @@ function LoginPage(props) {
   const rememberMeChecked = localStorage.getItem("rememberMe") 
    ? true
    : false;
+  const initialEmail = localStorage.getItem("rememberMe")
+    ? localStorage.getItem("rememberMe")
+    : "";
 
   const [formErrorMessage, setFormErrorMessage] = useState("");
   const [rememberMe, setRememberMe] = useState(rememberMeChecked);
@@ -20,10 +30,6 @@ function LoginPage(props) {
   const handleRememberMe = () => {
     setRememberMe(!rememberMe);
   };
-
-  const initialEmail = localStorage.getItem("rememberMe")
-    ? localStorage.getItem("rememberMe")
-    : "";
 
   return (
     <Formik
@@ -33,13 +39,17 @@ function LoginPage(props) {
         password: "",
       }}
 
-      validationSchema={Yup.object().shape({
-        email: Yup.string()
-          .email("Email is invalid")
-          .required("Email is required"),
-        password: Yup.string()
-          .min(6, "Password must be at least 6 characters")
-          .required("Password is required"),
+      validationSchema={Yup
+        .object()
+        .shape({
+        email: Yup
+        .string()
+        .email("Email is invalid")
+        .required("Email is required"),
+        password: Yup
+        .string()
+        .min(6, "Password must be at least 6 characters long")
+        .required("Password is required"),
       })}
 
       onSubmit={(values, { setSubmitting }) => {
@@ -77,6 +87,7 @@ function LoginPage(props) {
         }, 500);
       }}
     >
+      
       {(props) => {
         const {
           values,
