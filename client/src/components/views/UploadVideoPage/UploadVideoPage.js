@@ -1,59 +1,63 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
-import { Typography, Button, Form, Input, Icon } from "antd";
+import { Form, Icon, Input, Button, Typography } from "antd";
 
 import Dropzone from "react-dropzone";
 
 const { Title } = Typography;
-const { TextArea } = Input;
 
-const Private = [
-  { value: 0, label: "Private" },
-  { value: 1, label: "Public" },
+const PrivacyLabel = [
+  { value: 0, label:'Private'},
+  { value: 1, label:'Public'}
 ];
-const Catogory = [
+const CategoryLabel = [
   { value: 0, label: "Film & Animation" },
   { value: 0, label: "Autos & Vehicles" },
-  { value: 0, label: "Music" },
   { value: 0, label: "Pets & Animals" },
-  { value: 0, label: "Sports" },
+  { value: 0, label: "Travel & Events" },
+  { value: 0, label: "People & Blogs" },
+  { value: 0, label: "News & Politics" },
+  { value: 0, label: "Science & Technology" },
+  { value: 0, label: "Howto & Styles" },
+  { value: 0, label: "Sports & Gaming" },
+  { value: 0, label: "Music & Entertainment" },
 ];
 
 function UploadVideoPage() {
-  const [title, setTitle] = useState("");
-  const [Description, setDescription] = useState("");
-  const [Categories, setCategories] = useState("Film & Animation");
-  const [privacy, setPrivacy] = useState(0);
+  const [TitleVideo, setTitle] = useState("");
+  const [DescriptionVideo, setDescription] = useState("");
+  const [CategoryVideo, setCategories] = useState("Film & Animation");
+  const [PrivacyVideo, setPrivacy] = useState(0);
 
   const handleChangeTitle = (event) => {
     setTitle(event.currentTarget.value);
   }
 
-  const handleChangeDecsription = (event) => {
+  const handleChangeDescription = (event) => {
     setDescription(event.currentTarget.value);
   }
 
-  const handleChangeTwo = (event) => {
+  const handleChangeCategory = (event) => {
     setCategories(event.currentTarget.value);
-  };
-  
-  const handleChangeOne = (event) => {
-    setPrivacy(event.currentTarget.value);
-  };
+  }
 
-  const onSubmit = () => {};
+  const handleChangePrivacy = (event) => {
+    setPrivacy(event.currentTarget.value);
+  }
+
+  const onSubmit = () => {
+    
+  }
 
   return (
     <div style={{ maxWidth: "700px", margin: "2rem auto" }}>
-
       <div style={{ textAlign: "center", marginBottom: "2rem" }}>
         <Title level={2}> Upload Video</Title>
       </div>
 
       <Form onSubmit={onSubmit}>
-        
         <div style={{ display: "flex", justifyContent: "space-between" }}>
-
+          
           <Dropzone multiple={false} maxSize={800000000}>
             {({ getRootProps, getInputProps }) => (
               <div
@@ -72,40 +76,45 @@ function UploadVideoPage() {
               </div>
             )}
           </Dropzone>
-          
         </div>
 
-        <br /><br />
+        <br />
+        <br />
         <label>Title</label>
-        <Input onChange={handleChangeTitle} value={title} />
+        <Input onChange={handleChangeTitle} value={TitleVideo} />
 
-        <br /><br />
+        <br />
+        <br />
         <label>Description</label>
-        <TextArea onChange={handleChangeDecsription} value={Description} />
+        <Input onChange={handleChangeDescription} value={DescriptionVideo} />
 
-        <br /><br />
-        <select onChange={handleChangeOne}>
-          {Private.map((item, index) => (
-            <option key={index} value={item.value}>{item.label}</option>
-          ))}
-        </select>
-        
-        <br /><br />
-        <select onChange={handleChangeTwo}>
-          {Catogory.map((item, index) => (
+        <br />
+        <br />
+        <select onChange={handleChangeCategory}>
+          {CategoryLabel.map((item, index) => (
             <option key={index} value={item.label}>
               {item.label}
             </option>
           ))}
         </select>
 
-        <br /><br />
+        <br />
+        <br />
+        <select onChange={handleChangePrivacy}>
+          {PrivacyLabel.map((item, index) => (
+            <option key={index} value={item.label}>
+              {item.label}
+            </option>
+          ))}
+        </select>
+
+        <br />
+        <br />
         <Button type="primary" size="large" onClick={onSubmit}>
-          Submit
-        </Button>
+           Submit
+        </Button>     
 
       </Form>
-
     </div>
   );
 }
