@@ -4,6 +4,8 @@ import { Form, Icon, Input, Button, Typography } from "antd";
 
 import Dropzone from "react-dropzone";
 
+import axios from "axios";
+
 const { Title } = Typography;
 
 const PrivacyLabel = [
@@ -28,6 +30,7 @@ function UploadVideoPage() {
   const [DescriptionVideo, setDescription] = useState("");
   const [CategoryVideo, setCategories] = useState("Film & Animation");
   const [PrivacyVideo, setPrivacy] = useState(0);
+  const [FilePath, setFilePath] = useState("");
 
   const handleChangeTitle = (event) => {
     setTitle(event.currentTarget.value);
@@ -49,6 +52,31 @@ function UploadVideoPage() {
     
   }
 
+  const onDrop = (files) => {
+    let formData = new FormData();
+    const config = {
+      header: { "content-type": "multipart/form-data" },
+    };
+
+    formData.append("file", files[0]);
+
+    axios.post("/api/video/uploadFile", formData, config)
+    .then(response => {
+      if (response.data.success) {
+
+        let fileData = {
+          fileName: response.data.fileName,
+          filePath: response.data.filePath,
+        }
+
+        setFilePath(response.data.filePath);
+
+      } else {
+        alert("Failed to save the video in server");
+      }
+    })
+  };
+
   return (
     <div style={{ maxWidth: "700px", margin: "2rem auto" }}>
       <div style={{ textAlign: "center", marginBottom: "2rem" }}>
@@ -57,8 +85,11 @@ function UploadVideoPage() {
 
       <Form onSubmit={onSubmit}>
         <div style={{ display: "flex", justifyContent: "space-between" }}>
-          
-          <Dropzone multiple={false} maxSize={800000000}>
+
+          <Dropzone
+          onDrop={onDrop}
+           multiple={false}
+            maxSize={800000000}>
             {({ getRootProps, getInputProps }) => (
               <div
                 style={{
