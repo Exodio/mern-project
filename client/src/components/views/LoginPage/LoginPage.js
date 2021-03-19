@@ -133,6 +133,7 @@ function LoginPage(props) {
                   }
                   placeholder="Enter your password"
                   type="password"
+                  autoComplete="off"
                   value={values.password}
                   onChange={handleChange}
                   onBlur={handleBlur}

@@ -13,7 +13,7 @@ function Footer() {
         fontSize: "1rem",
       }}
     >
-    <p> Happy Coding  <Icon type="smile" /></p>
+    <p> Happy Coding  <Icon type="loading" /></p>
     </div>
   );
 }

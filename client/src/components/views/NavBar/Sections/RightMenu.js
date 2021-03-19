@@ -13,15 +13,14 @@ function RightMenu(props) {
   const user = useSelector((state) => state.user);
 
   const logoutHandler = () => {
-    axios.get(`${USER_SERVER}/logout`)
-    .then((response) => {
+    axios.get(`${USER_SERVER}/logout`).then((response) => {
       if (response.status === 200) {
         props.history.push("/login");
       } else {
         alert("Log Out Failed");
       }
     });
-  }
+  };
 
   if (user.userData && !user.userData.isAuth) {
     return (
@@ -38,7 +37,7 @@ function RightMenu(props) {
     return (
       <Menu mode={props.mode}>
         <Menu.Item key="logout">
-          <a onClick={logoutHandler}>Logout</a>
+          <a href="/" onClick={logoutHandler}>Logout</a>
         </Menu.Item>
       </Menu>
     );
