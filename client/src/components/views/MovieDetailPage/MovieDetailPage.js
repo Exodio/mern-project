@@ -9,24 +9,26 @@ import GridCard from "../LandingPage/Sections/GridCard";
 
 function MovieDetailPage(props) {
   const [Movie, setMovie] = useState([]);
-  const [Crews, setCrews] = useState([]);
+  const [Cast, setCast] = useState([]);
+  const [LoadingForMovie, setLoadingForMovie] = useState(true);
   const [ActorToggle, setActorToggle] = useState(false);
 
   useEffect(() => {
     const movieId = props.match.params.movieId;
 
-    fetch(`${API_URL}movie/${movieId}?api_key=${API_KEY}&language=en-US`)
+    fetch(`${API_URL}movie/${movieId}?api_key=${API_KEY}`)
       .then((response) => response.json())
       .then((response) => {
         setMovie(response);
+        setLoadingForMovie(false);
 
         fetch(`${API_URL}movie/${movieId}/credits?api_key=${API_KEY}`)
           .then((response) => response.json())
           .then((response) => {
-            console.log(response);
-            setCrews(response.cast);
+            setCast(response.cast);
           })
           .catch((error) => console.error("Error:", error));
+          
       })
       .catch((error) => console.error("Error:", error));
   }, []);
@@ -36,16 +38,16 @@ function MovieDetailPage(props) {
   };
 
   return (
-    <div>
+    <div style={{ width: "100%", margin: 0 }}>
       {/* Movie Main Image Component */}
-      {Movie && (
+      {!LoadingForMovie ? (
         <MainImage
-          image={`${IMAGE_URL}w1280${
-            Movie.backdrop_path && Movie.backdrop_path
-          }`}
+          image={`${IMAGE_URL}w1280${Movie.backdrop_path}`}
           title={Movie.original_title}
           text={Movie.overview}
         />
+      ) : (
+        <div>Loading...</div>
       )}
 
       {/* Body */}
@@ -79,23 +81,22 @@ function MovieDetailPage(props) {
             {Movie.popularity} Views
           </Descriptions.Item>
         </Descriptions>
+        <br />
+        <br />
 
-        <br />
-        <br />
+        {/* Grid Cards for Cast */}
         <div style={{ display: "flex", justifyContent: "center" }}>
           <Button onClick={handleClick}> Toggle Actor View</Button>
         </div>
-        {/* Grid Cards for Crews */}
+        <br />
+        <br />
         {ActorToggle && (
           <Row gutter={[16, 16]}>
-            {Crews &&
-              Crews.map((crew, index) => (
+            {Cast &&
+              Cast.map((crew, index) => (
                 <React.Fragment key={index}>
                   {crew.profile_path && (
-                    <GridCard
-                      actor
-                      image={`${IMAGE_URL}w1500${crew.profile_path}`}
-                    />
+                    <GridCard actor image={`${crew.profile_path}`} />
                   )}
                 </React.Fragment>
               ))}

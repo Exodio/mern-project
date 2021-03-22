@@ -15,8 +15,8 @@ function GridCards(props) {
         <div style={{ position: "relative" }}>
           <img
             style={{ width: "100%", height: "320px" }}
-            alt={characterName}
             src={`${IMAGE_URL}${POSTER_SIZE}${image}`}
+            alt={characterName}
           />
         </div>
       </Col>
@@ -28,8 +28,8 @@ function GridCards(props) {
           <a href={`/movie/${movieId}`}>
             <img
               style={{ width: "100%", height: "320px" }}
-              alt={movieName}
               src={image}
+              alt={movieName}
             />
           </a>
         </div>

@@ -60,10 +60,12 @@ function LandingPage() {
 
         {/* Movie Info for Table */}
         <Row gutter={[16, 16]}>
-          {Movies && Movies.map((movie, index) => (
+          {Movies
+          && Movies.map((movie, index) => (
               <React.Fragment key={index}>
                 <GridCard
-                  image={movie.poster_path && `${IMAGE_URL}w500${movie.poster_path}`}
+                  image={movie.poster_path
+                    && `${IMAGE_URL}w500${movie.poster_path}`}
                   movieId={movie.id}
                 />
               </React.Fragment>

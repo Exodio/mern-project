@@ -3,13 +3,13 @@ import React, { Suspense } from "react";
 import { Route, Switch } from "react-router-dom";
 // Authentication for the application
 import Auth from "../hoc/auth";
-// View pages for the application
+// Main pages for the application
 import NavBar from "../components/views/NavBar/NavBar";
 import LandingPage from "../components/views/LandingPage/LandingPage";
 import LoginPage from "../components/views/LoginPage/LoginPage";
 import RegisterPage from "../components/views/RegisterPage/RegisterPage";
 import Footer from "../components/views/Footer/Footer";
-
+//Additional features of the application
 import MovieDetailPage from "./views/MovieDetailPage/MovieDetailPage";
 
 function App() {
@@ -23,7 +23,7 @@ function App() {
           <Route exact path="/" component={Auth(LandingPage, null)} />
           <Route exact path="/login" component={Auth(LoginPage, false)} />
           <Route exact path="/register" component={Auth(RegisterPage, false)} />
-          <Route exact path="/movie/:movieId" component={Auth(MovieDetailPage, false)} />
+          <Route exact path="/movie/:movieId" component={Auth(MovieDetailPage, true)} />
         </Switch>
       </div>
 
