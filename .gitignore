@@ -1,9 +1,8 @@
 /node_modules
 /build
 
+# DB key
 dev.js
-
-uploads
 
 .DS_Store
 npm-debug.log*
