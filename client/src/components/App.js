@@ -11,12 +11,13 @@ import RegisterPage from "../components/views/RegisterPage/RegisterPage";
 import Footer from "../components/views/Footer/Footer";
 //Additional features of the application
 import MovieDetailPage from "./views/MovieDetailPage/MovieDetailPage";
+import Scroller from "../components/Scroller/ScrollToTop";
 
 function App() {
   return (
     <Suspense fallback={<div>Loading...</div>}>
 
-      <NavBar />
+      <NavBar/>
 
       <div style={{ paddingTop: "75px", minHeight: "calc(100vh - 80px)" }}>
         <Switch>
@@ -26,7 +27,7 @@ function App() {
           <Route exact path="/movie/:movieId" component={Auth(MovieDetailPage, true)} />
         </Switch>
       </div>
-
+      <Scroller/>
       <Footer />
 
     </Suspense>

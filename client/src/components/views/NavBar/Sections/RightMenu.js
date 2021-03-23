@@ -1,5 +1,8 @@
 import React from "react";
+
 import axios from "axios";
+
+import { Icon } from "antd";
 
 import { useSelector } from "react-redux";
 
@@ -26,10 +29,10 @@ function RightMenu(props) {
     return (
       <Menu mode={props.mode}>
         <Menu.Item key="mail">
-          <a href="/login">Sign In</a>
+          <a href="/login">Sign In <Icon type="login"/></a>
         </Menu.Item>
         <Menu.Item key="app">
-          <a href="/register">Sign Up</a>
+          <a href="/register">Sign Up <Icon type="rocket"/></a>
         </Menu.Item>
       </Menu>
     );
@@ -37,7 +40,7 @@ function RightMenu(props) {
     return (
       <Menu mode={props.mode}>
         <Menu.Item key="logout">
-          <a href="/" onClick={logoutHandler}>Logout</a>
+          <a href="/login" onClick={logoutHandler}>Logout <Icon type="logout"/></a>
         </Menu.Item>
       </Menu>
     );

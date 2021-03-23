@@ -7,14 +7,19 @@ import { API_URL, API_KEY, IMAGE_URL } from "../../Config";
 import MainImage from "../LandingPage/Sections/MainImage";
 import GridCard from "../LandingPage/Sections/GridCard";
 
+import Favourite from "./Sections/Favourite";
+
+
 function MovieDetailPage(props) {
   const [Movie, setMovie] = useState([]);
   const [Cast, setCast] = useState([]);
+
   const [LoadingForMovie, setLoadingForMovie] = useState(true);
   const [ActorToggle, setActorToggle] = useState(false);
 
+  const movieId = props.match.params.movieId;
+
   useEffect(() => {
-    const movieId = props.match.params.movieId;
 
     fetch(`${API_URL}movie/${movieId}?api_key=${API_KEY}`)
       .then((response) => response.json())
@@ -50,10 +55,14 @@ function MovieDetailPage(props) {
         <div>Loading...</div>
       )}
 
-      {/* Body */}
+      {/* Movie Body */}
       <div style={{ width: "85%", margin: "1rem auto" }}>
         <div style={{ display: "flex", justifyContent: "flex-end" }}>
-          <Button> Add Movie To Favourites</Button>
+          <Favourite
+            userForm={localStorage.getItem("userId")}
+            movieId={movieId}
+            movieInfo={Movie}
+          />
         </div>
 
         {/* Movie Info for Table */}
@@ -76,7 +85,9 @@ function MovieDetailPage(props) {
           <Descriptions.Item label="vote_count">
             {Movie.vote_count} Votes
           </Descriptions.Item>
-          <Descriptions.Item label="status">{Movie.status}</Descriptions.Item>
+          <Descriptions.Item label="status">
+            {Movie.status}
+            </Descriptions.Item>
           <Descriptions.Item label="popularity">
             {Movie.popularity} Views
           </Descriptions.Item>
@@ -93,10 +104,10 @@ function MovieDetailPage(props) {
         {ActorToggle && (
           <Row gutter={[16, 16]}>
             {Cast &&
-              Cast.map((crew, index) => (
+              Cast.map((cast, index) => (
                 <React.Fragment key={index}>
-                  {crew.profile_path && (
-                    <GridCard actor image={`${crew.profile_path}`} />
+                  {cast.profile_path && (
+                    <GridCard actor image={`${cast.profile_path}`} />
                   )}
                 </React.Fragment>
               ))}

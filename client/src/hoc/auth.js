@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { auth } from "../components/_actions/user_actions";
 import { useSelector, useDispatch } from "react-redux";
 
+
 function authHoc(ComposedClass, reload, adminRoute = null) {
   function AuthenticationCheck(props) {
     let user = useSelector((state) => state.user);
@@ -10,7 +11,7 @@ function authHoc(ComposedClass, reload, adminRoute = null) {
     useEffect(() => {
       dispatch(auth())
       .then(async (response) => {
-        if (await !response.payload.isAuth) {
+        if (await (!response.payload.isAuth)) {
           if (reload) {
             props.history.push("/register_login");
           }

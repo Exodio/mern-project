@@ -11,8 +11,8 @@ import promiseMiddleware from "redux-promise";
 import reduxThunk from "redux-thunk";
 import { Provider } from "react-redux";
 
+//Additional features of the application
 import Reducer from "./components/_reducers";
-
 
 const basicReduxStore = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();
 const createStoreWithMiddleware = applyMiddleware(promiseMiddleware, reduxThunk)(createStore);

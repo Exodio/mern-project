@@ -2,7 +2,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 
-import { Typography, Row } from "antd";
+import { Typography, Row, Button, Icon } from "antd";
 
 import { API_URL, API_KEY, IMAGE_URL } from "../../Config";
 
@@ -55,7 +55,7 @@ function LandingPage() {
 
       {/* Movie Body */}
       <div style={{ width: "85%", margin: "1rem auto" }}>
-        <Title level={2}> Movies listing by the latest</Title>
+        <Title level={2}>Movies listing by the latest<Icon type="fire"/></Title>
         <hr />
 
         {/* Movie Info for Table */}
@@ -75,7 +75,7 @@ function LandingPage() {
         {/* Load More Button Functionality */}
         <br />
         <div style={{ display: "flex", justifyContent: "center" }}>
-          <button onClick={handleClick}>Load More Movies</button>
+          <Button onClick={handleClick}><Icon type="select"/> More Movies<Icon type="loading"/></Button>
         </div>
       </div>
     </div>

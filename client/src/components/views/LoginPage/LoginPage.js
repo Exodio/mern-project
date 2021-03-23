@@ -12,8 +12,8 @@ import * as Yup from "yup";
 
 import { withRouter } from "react-router-dom";
 
-
 const { Title } = Typography;
+
 
 function LoginPage(props) {
   const dispatch = useDispatch();

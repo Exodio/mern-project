@@ -5,6 +5,7 @@ import { Typography } from "antd";
 
 const { Title } = Typography;
 
+
 function MainImage(props) {
   return (
     <div

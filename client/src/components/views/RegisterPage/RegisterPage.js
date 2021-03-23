@@ -12,6 +12,7 @@ import { Form, Input, Button } from "antd";
 
 import { useDispatch } from "react-redux";
 
+
 const formItemLayout = {
   labelCol: {
     xs: { span: 24 },
@@ -34,6 +35,7 @@ const tailFormItemLayout = {
     },
   },
 };
+
 
 function RegisterPage(props) {
   const dispatch = useDispatch();
@@ -114,7 +116,7 @@ function RegisterPage(props) {
               {...formItemLayout}
               onSubmit={handleSubmit}
             >
-              <Form.Item required label="Name">
+              <Form.Item required label="Name" hasFeedback>
                 <Input
                   id="name"
                   placeholder="Enter your Name"
@@ -133,7 +135,7 @@ function RegisterPage(props) {
                 )}
               </Form.Item>
 
-              <Form.Item required label="Last Name">
+              <Form.Item required label="Last Name" hasFeedback>
                 <Input
                   id="lastName"
                   placeholder="Enter your Last Name"
