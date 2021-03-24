@@ -20,7 +20,7 @@ class Footer extends Component {
       >
         <div className="row">
           <p className="col-sm">
-          &copy; <a href="https://github.com/Exodio" alt="github-profile"><Icon type="github"/>EXODIO</a> | All Rights Reserved.<Icon type="api"/> 
+          &copy; <a href="https://github.com/Exodio" alt="github-profile"><Icon type="github"/>exodio</a> | All Rights Reserved. 
           </p>
         </div>
       </div>

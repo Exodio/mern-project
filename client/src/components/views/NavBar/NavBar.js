@@ -22,7 +22,7 @@ function NavBar() {
       style={{ position: "fixed", zIndex: 1, width: "100%" }}
     >
       <div className="menu__logo">
-        <a href="/">Logo</a>
+      <a href="/"><img src="https://i.postimg.cc/NGzrbXSH/navbar-main-logo.png" alt="home-logo-icon" style={{ width: '100%', marginTop:"-25px" }} /></a>
       </div>
       <div className="menu__container">
         <div className="menu_left">
@@ -39,7 +39,7 @@ function NavBar() {
           <Icon type="align-right" />
         </Button>
         <Drawer
-          title="Basic Drawer"
+          title="Menu"
           placement="right"
           className="menu_drawer"
           closable={false}

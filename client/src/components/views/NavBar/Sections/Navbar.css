@@ -16,7 +16,7 @@
 .menu__logo a {
     display: inline-block;
     font-size: 20px;
-    padding: 19px 20px;
+    padding: 18px 20px;
 }
 
 .menu__container .ant-menu-item {
@@ -72,7 +72,7 @@
     }
 
     .menu__logo a {
-        margin-left: -20px;
+        margin-left: -23px;
     }
 
     .menu__container .ant-menu-item,
@@ -81,6 +81,6 @@
     }
 
     .menu__logo a {
-        padding: 10px 20px;
+        padding: 25px 20px;
     }
 }
