@@ -5,7 +5,6 @@ import { Col } from "antd";
 
 import { IMAGE_URL } from "../../../Config";
 
-
 function GridCards(props) {
   const POSTER_SIZE = "w154";
   let { actor, key, image, movieId, movieName, characterName } = props;

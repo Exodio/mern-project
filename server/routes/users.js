@@ -5,7 +5,6 @@ const { User } = require("../models/User");
 
 const { auth } = require("../middleware/auth");
 
-
 router.get("/auth", auth, (req, res) => {
   res.status(200).json({
     name: req.user.name,

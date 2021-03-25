@@ -11,7 +11,6 @@ import GridCard from "./Sections/GridCard";
 
 const { Title } = Typography;
 
-
 function LandingPage() {
   const [Movies, setMovies] = useState([]);
   const [CurrentPage, setCurrentPage] = useState(0);
@@ -22,7 +21,6 @@ function LandingPage() {
       .catch((error) => console.error("Error:", error));
 
     const endpoint = `${API_URL}movie/popular?api_key=${API_KEY}&language=en-US&page=1`;
-
     fetchMovies(endpoint);
   }, []);
 
@@ -38,7 +36,6 @@ function LandingPage() {
 
   const handleClick = () => {
     const endpoint = `${API_URL}movie/popular?api_key=${API_KEY}&language=en-US&page=${CurrentPage + 1}`;
-
     fetchMovies(endpoint);
   };
 
@@ -52,12 +49,10 @@ function LandingPage() {
           text={Movies[0].overview}
         />
       )}
-
       {/* Movie Body */}
       <div style={{ width: "85%", margin: "1rem auto" }}>
         <Title level={2}>Movies listing by the latest<Icon type="fire"/></Title>
         <hr />
-
         {/* Movie Info for Table */}
         <Row gutter={[16, 16]}>
           {Movies
@@ -71,7 +66,6 @@ function LandingPage() {
               </React.Fragment>
             ))}
         </Row>
-
         {/* Load More Button Functionality */}
         <br />
         <div style={{ display: "flex", justifyContent: "center" }}>

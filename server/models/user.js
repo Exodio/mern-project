@@ -21,10 +21,6 @@ const userSchema = mongoose.Schema({
     type: String,
     maxlength: 50,
   },
-  role: {
-    type: Number,
-    default: 0,
-  },
   token: {
     type: String,
   },

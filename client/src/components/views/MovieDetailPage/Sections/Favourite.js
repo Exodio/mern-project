@@ -4,7 +4,6 @@ import axios from "axios";
 
 import { Button, Icon } from "antd";
 
-
 function Favourite(props) {
     const [FavouriteNumber, setFavouriteNumber] = useState(0);
     const [Favourited, setFavourited] = useState(false);
@@ -18,31 +17,36 @@ function Favourite(props) {
     };
 
     useEffect(() => {
-
     axios
       .post("/api/favourite/favouriteNumber", favouriteData)
       .then((response) => {
-
-        if (response.data.success) {
-            setFavouriteNumber(response.data.favouriteNumber);
+        if (!response.data.isAuth) {
+          return response.redirect("/login");
         } else {
-          alert("Failed to get the Favourite movie number");
+          if (response.data.success) {
+            setFavouriteNumber(response.data.favouriteNumber);
+          } else {
+            alert("Failed to get the Favourite movie number");
+          }
         }
       })
       .catch((error) => console.error("Error:", error));
-
 
       axios
-      .post("/api/favourite/favourited", favouriteData)
-      .then((response) => {
+        .post("/api/favourite/favourited", favouriteData)
+        .then((response) => {
 
-        if (response.data.success) {
-            setFavourited(response.data.favourited);
-        } else {
-          alert("Failed to get Favourited movie information");
-        }
-      })
-      .catch((error) => console.error("Error:", error));
+          if (!response.data.isAuth) {
+            return response.redirect("/login");
+          } else {
+            if (response.data.success) {
+              setFavourited(response.data.favourited);
+            } else {
+              alert("Failed to get Favourited movie information");
+            }
+          }
+        })
+        .catch((error) => console.error("Error:", error));
   }, []);
 
   const onClickFavourite = () => {     

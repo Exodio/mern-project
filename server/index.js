@@ -7,7 +7,6 @@ const cookieParser = require("cookie-parser");
 
 const config = require("./config/key");
 
-
 mongoose
   .connect(config.mongoURI, { useNewUrlParser: true })
   .then(() => console.log("Mongo DB Connected..........!"))

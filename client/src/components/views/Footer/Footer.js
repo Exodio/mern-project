@@ -2,12 +2,12 @@ import React, { Component } from "react";
 
 import { Icon } from "antd";
 
-
 class Footer extends Component {
   render() {
     return (
       <div
         style={{
+          fontFamily: "cursive",
           height: "80px",
           display: "flex",
           flexDirection: "column",
@@ -18,8 +18,8 @@ class Footer extends Component {
           borderTop: "1px solid #e0e4f6"
         }}
       >
-        <div className="row">
-          <p className="col-sm">
+        <div>
+          <p>
           &copy; <a href="https://github.com/Exodio" alt="github-profile"><Icon type="github"/>exodio</a> | All Rights Reserved. 
           </p>
         </div>

@@ -5,7 +5,8 @@ import { USER_SERVER } from "../Config";
 export function loginUser(dataToSubmit) {
   const request = axios
     .post(`${USER_SERVER}/login`, dataToSubmit)
-    .then((response) => response.data);
+    .then((response) => response.data)
+    .catch((error) => console.error("Error:", error));
 
   return {
     type: LOGIN_USER,
@@ -16,7 +17,8 @@ export function loginUser(dataToSubmit) {
 export function registerUser(dataToSubmit) {
   const request = axios
     .post(`${USER_SERVER}/register`, dataToSubmit)
-    .then((response) => response.data);
+    .then((response) => response.data)
+    .catch((error) => console.error("Error:", error));
 
   return {
     type: REGISTER_USER,
@@ -27,7 +29,8 @@ export function registerUser(dataToSubmit) {
 export function auth() {
   const request = axios
     .get(`${USER_SERVER}/auth`)
-    .then((response) => response.data);
+    .then((response) => response.data)
+    .catch((error) => console.error("Error:", error));
 
   return {
     type: AUTH_USER,
@@ -38,7 +41,8 @@ export function auth() {
 export function logoutUser() {
   const request = axios
     .get(`${USER_SERVER}/logout`)
-    .then((response) => response.data);
+    .then((response) => response.data)        
+    .catch((error) => console.error("Error:", error));
 
   return {
     type: LOGOUT_USER,

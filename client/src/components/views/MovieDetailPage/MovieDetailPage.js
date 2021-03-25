@@ -9,7 +9,6 @@ import GridCard from "../LandingPage/Sections/GridCard";
 
 import Favourite from "./Sections/Favourite";
 
-
 function MovieDetailPage(props) {
   const [Movie, setMovie] = useState([]);
   const [Cast, setCast] = useState([]);
@@ -54,7 +53,6 @@ function MovieDetailPage(props) {
       ) : (
         <div>Loading...</div>
       )}
-
       {/* Movie Body */}
       <div style={{ width: "85%", margin: "1rem auto" }}>
         <div style={{ display: "flex", justifyContent: "flex-end" }}>
@@ -64,7 +62,6 @@ function MovieDetailPage(props) {
             movieInfo={Movie}
           />
         </div>
-
         {/* Movie Info for Table */}
         <Descriptions title="Movie Details" bordered>
           <Descriptions.Item label="Title">
@@ -94,7 +91,6 @@ function MovieDetailPage(props) {
         </Descriptions>
         <br />
         <br />
-
         {/* Grid Cards for Cast */}
         <div style={{ display: "flex", justifyContent: "center" }}>
           <Button onClick={handleClick}> Toggle Actor View</Button>

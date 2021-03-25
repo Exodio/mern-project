@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 
+import { withRouter } from "react-router-dom";
+
 import { loginUser } from "../../_actions/user_actions";
 
-import { Form, Icon, Input, Button, Checkbox, Typography } from "antd";
+import { Form, Icon, Input, Button, Typography } from "antd";
 
 import { useDispatch } from "react-redux";
 
@@ -10,26 +12,12 @@ import { Formik } from "formik";
 
 import * as Yup from "yup";
 
-import { withRouter } from "react-router-dom";
-
 const { Title } = Typography;
-
 
 function LoginPage(props) {
   const dispatch = useDispatch();
-  const rememberMeChecked = localStorage.getItem("rememberMe") 
-   ? true
-   : false;
-  const initialEmail = localStorage.getItem("rememberMe")
-    ? localStorage.getItem("rememberMe")
-    : "";
-
+  const initialEmail = "";
   const [formErrorMessage, setFormErrorMessage] = useState("");
-  const [rememberMe, setRememberMe] = useState(rememberMeChecked);
-
-  const handleRememberMe = () => {
-    setRememberMe(!rememberMe);
-  };
 
   return (
     <Formik
@@ -63,15 +51,7 @@ function LoginPage(props) {
             .then((response) => {
               if (response.payload.loginSuccess) {
                 window.localStorage.setItem("userId", response.payload.userId);
-
-                if (rememberMe === true) {
-                  window.localStorage.setItem("rememberMe", values.id);
-                } else {
-                  localStorage.removeItem("rememberMe");
-                }
-
                 props.history.push("/");
-
               } else {
                 setFormErrorMessage("Check your Account or Password again");
               }
@@ -82,7 +62,7 @@ function LoginPage(props) {
                 setFormErrorMessage("");
               }, 3000);
             });
-            
+        
           setSubmitting(false);
         }, 500);
       }}
@@ -93,7 +73,6 @@ function LoginPage(props) {
           values,
           touched,
           errors,
-          isSubmitting,
           handleChange,
           handleBlur,
           handleSubmit,
@@ -165,27 +144,12 @@ function LoginPage(props) {
               )}
 
               <Form.Item>
-                <Checkbox
-                  id="rememberMe"
-                  onChange={handleRememberMe}
-                  checked={rememberMe}
-                >
-                  Remember me
-                </Checkbox>
-                <a
-                  className="login-form-forgot"
-                  href="/reset_user"
-                  style={{ float: "right" }}
-                >
-                  Forgot password
-                </a>
                 <div>
                   <Button
                     type="primary"
                     htmlType="submit"
                     className="login-form-button"
                     style={{ minWidth: "100%" }}
-                    disabled={isSubmitting}
                     onSubmit={handleSubmit}
                   >
                     Log in

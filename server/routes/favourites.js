@@ -5,7 +5,6 @@ const { Favourite } = require("../models/Favourite");
 
 const { auth } = require("../middleware/auth");
 
-
 router.post("/favouriteNumber", auth, (req, res) => {
     Favourite.find({ movieId: req.body.movieId })
     .exec((err, favourite) => {
@@ -67,6 +66,5 @@ router.post("/removeFromFavourite", auth, (req, res) => {
     res.status(200).json({ success: true, data });
   });
 });
-
 
 module.exports = router;
