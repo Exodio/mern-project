@@ -1,11 +1,9 @@
-import logo from "../../../assets/loading-logo.gif";
-
-function Loading() {
+function LoadingScreen() {
   return (
       <div style={{ width:"100%", height:"100%", display:"flex", justifyContent:"center" }}>
-      <img src={logo} alt="loading-logo" />
+      <img src="https://i.postimg.cc/gJtntfMp/loading-logo.gif" alt="loading-logo" />
     </div>
   );
 }
 
-export default Loading;
+export default LoadingScreen;

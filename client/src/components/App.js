@@ -10,22 +10,23 @@ import LoginPage from "../components/views/LoginPage/LoginPage";
 import RegisterPage from "../components/views/RegisterPage/RegisterPage";
 import Footer from "../components/views/Footer/Footer";
 import NotFound from "../components/views/NotFound/NotFound";
-// Special pages of the application
-import MovieDetailPage from "./views/MovieDetailPage/MovieDetailPage";
+// Additional pages of the application
+import MovieDetailsPage from "./views/MovieDetailsPage/MovieDetailsPage";
+import FavoritePage from "./views/FavouritePage/FavoritePage";
 // Additional features of the application
 import LoadingScreen from "./views/LoadingScreen/LoadingScreen";
 import Scroller from "../components/Scroller/ScrollToTop";
 
 function App() {
-  const [Loading, setLoading] = useState(true);
+  const [Loading, setLoading] = useState(false);
 
   useEffect(() => {
-    setTimeout(() => setLoading(false), 1500);
+    setTimeout(() => setLoading(true), 3000);
   }, []);
 
   return (
     <>
-      {Loading === false ? (
+      {Loading === true ? (
         <React.Fragment>
           <NavBar />
           <div style={{ paddingTop: "75px", minHeight: "calc(100vh - 80px)" }}>
@@ -33,7 +34,8 @@ function App() {
               <Route exact path="/" component={Auth(LandingPage, null)} />
               <Route exact path="/login" component={Auth(LoginPage, false)} />
               <Route exact path="/register" component={Auth(RegisterPage, false)}/>
-              <Route exact path="/movie/:movieId" component={Auth(MovieDetailPage, true)}/>
+              <Route exact path="/movie/:movieId" component={Auth(MovieDetailsPage, true)}/>
+              <Route exact path="/favorite" component={Auth(FavoritePage, true)}/>
               <Route component={Auth(NotFound, false)} />
             </Switch>
           </div>

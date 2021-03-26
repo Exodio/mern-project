@@ -6,7 +6,7 @@ class NotFound extends Component {
     return (
       <div>
         <p className="not-found">The page that you are looking for is not found !</p>
-        <br></br>
+        <hr />
         <div className="tipsiz">
           <div className="tipsiz-body">
             <div className="left-arm arm"></div>

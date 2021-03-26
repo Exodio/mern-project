@@ -13,7 +13,6 @@ router.get("/auth", auth, (req, res) => {
     role: req.user.role,
     image: req.user.image,
     _id: req.user._id,
-    isAdmin: req.user.role === 0 ? false : true,
     isAuth: true,
   });
 });
@@ -58,8 +57,7 @@ router.post("/login", (req, res) => {
             .status(400)
             .send(err);
         }
-
-        res.cookie("x_authExp", user.tokenExp);
+        
         res.cookie("x_auth", user.token)
         .status(200)
         .json({
@@ -74,7 +72,7 @@ router.post("/login", (req, res) => {
 router.get("/logout", auth, (req, res) => {
   User.findOneAndUpdate(
     { _id: req.user._id },
-    { token: "", tokenExp: "" },
+    { token: "" },
     (err, data) => {
       if (err) {
         return res.json({
