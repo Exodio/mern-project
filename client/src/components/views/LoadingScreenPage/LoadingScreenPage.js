@@ -4,6 +4,6 @@ function LoadingScreen() {
       <img src="https://i.postimg.cc/gJtntfMp/loading-logo.gif" alt="loading-logo" />
     </div>
   );
-}
+};
 
 export default LoadingScreen;

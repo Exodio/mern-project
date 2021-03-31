@@ -18,7 +18,7 @@ function FavoritePage() {
 
     const fetchFavoredMovie = () => {
       axios
-        .post("/api/favorite/getFavorites", movieFormData)
+        .post("/api/favorites/getFavorites", movieFormData)
         .then((response) => {
           if (response.data.success) {
             setFavorites(response.data.favorites);
@@ -36,7 +36,7 @@ function FavoritePage() {
       };
 
       axios
-        .post("/api/favorite/removeFromFavorite", movieForm)
+        .post("/api/favorites/removeFromFavorite", movieForm)
         .then((response) => {
           if (response.data.success) {
             fetchFavoredMovie();
@@ -48,21 +48,22 @@ function FavoritePage() {
     };
 
     const renderMovieCards = Favorites.map((favorite, index) => {
-        const content = (
-          <div>
+      const content = (
+        <div>
             {favorite.moviePost ? (
               <img src={`${IMAGE_URL}${POSTER_SIZE}${favorite.moviePost}`} alt="poster-logo"/>
             ) : (
-              "We are sorry, this movie does not have an image added to display, yet!"
+              "We are sorry, but this movie does not have an image to be display, yet!"
             )}
           </div>
         );
+
         return <tr key={index}>
             <Popover content={content} title={`${favorite.movieTitle}`}>
                 <td>{favorite.movieTitle}</td>
             </Popover>
             <td>{favorite.movieRunTime} minutes</td>
-            <td><Button onClick={() => onClickDelete(favorite.movieId, favorite.userFrom)}>Remove</Button></td>
+            <td><Button onClick={() => onClickDelete(favorite.movieId, favorite.userFrom)}>Remove<Icon type="delete"/></Button></td>
         </tr>
     });
 
@@ -75,13 +76,12 @@ function FavoritePage() {
             <tr>
               <th>Movie Title</th>
               <th>Movie Length</th>
-              <td>Movie Actions</td>
             </tr>
           </thead>
-          <tbody>{renderMovieCards}</tbody>
+          <tbody>{Favorites.length === 0 ? <h3 style={{ display: "flex", justifyContent: "center", alignItems: "center", height: "150px", fontFamily: "cursive" }}>Sorry but your list is empty and there is nothing to display.. <Icon type="frown"/></h3> : renderMovieCards}</tbody>
         </table>
       </div>
     );
-}
+};
 
 export default FavoritePage;

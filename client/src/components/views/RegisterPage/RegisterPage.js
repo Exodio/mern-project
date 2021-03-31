@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
+
+import { Form, Input, Button } from "antd";
 
 import { Formik } from "formik";
 
@@ -7,8 +9,6 @@ import * as Yup from "yup";
 import moment from "moment";
 
 import { registerUser } from "../../_actions/user_actions";
-
-import { Form, Input, Button } from "antd";
 
 import { useDispatch } from "react-redux";
 
@@ -22,6 +22,7 @@ const formItemLayout = {
     sm: { span: 16 },
   },
 };
+
 const tailFormItemLayout = {
   wrapperCol: {
     xs: {
@@ -35,9 +36,9 @@ const tailFormItemLayout = {
   },
 };
 
-
 function RegisterPage(props) {
   const dispatch = useDispatch();
+  const [formErrorMessage, setFormErrorMessage] = useState("");
   
   return (
     <Formik
@@ -55,7 +56,7 @@ function RegisterPage(props) {
         .shape({
         name: Yup
         .string()
-        .required("Name is required"),
+        .required("First Name is required"),
         lastName: Yup
         .string()
         .required("Last Name is required"),
@@ -83,12 +84,22 @@ function RegisterPage(props) {
             image: `http://gravatar.com/avatar/${moment().unix()}?d=identicon`,
           };
 
-          dispatch(registerUser(dataToSubmit)).then((response) => {
-            if (response.payload.success) {
-              props.history.push("/login");
-            } else {
-              alert(response.payload.err.errmsg);
-            }
+          dispatch(registerUser(dataToSubmit))
+           .then((response) => {
+             if (response.payload.success) {
+               props.history.push("/login");
+             } else {
+               setFormErrorMessage("Email is already in use, please choose a different Email Address");
+               setTimeout(() => {
+                 setFormErrorMessage("");
+               }, 5000);
+             }
+          })
+          .catch((err) => {
+            setFormErrorMessage("Please check your Input Fields and Password again");
+            setTimeout(() => {
+              setFormErrorMessage("");
+            }, 3000);
           });
 
           setSubmitting(false);
@@ -228,6 +239,22 @@ function RegisterPage(props) {
                 )}
               </Form.Item>
 
+              {formErrorMessage && (
+                <label>
+                  <p
+                    style={{
+                      color: "#ff0000bf",
+                      fontSize: "0.7rem",
+                      border: "1px solid",
+                      padding: "1rem",
+                      borderRadius: "10px",
+                    }}
+                  >
+                    {formErrorMessage}
+                  </p>
+                </label>
+              )}
+
               <Form.Item {...tailFormItemLayout}>
                 <Button
                   onClick={handleSubmit}
@@ -241,9 +268,9 @@ function RegisterPage(props) {
           </div>
         );
       }}
-      
+
     </Formik>
   );
-}
+};
 
 export default RegisterPage;

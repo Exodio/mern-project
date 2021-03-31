@@ -13,6 +13,6 @@ const userState = (state = {}, action) => {
     default:
       return state;
   }
-}
+};
 
 export default userState;

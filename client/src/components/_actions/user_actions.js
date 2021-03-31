@@ -1,5 +1,7 @@
 import axios from "axios";
+
 import { LOGIN_USER, REGISTER_USER, AUTH_USER, LOGOUT_USER } from "./types";
+
 import { USER_SERVER } from "../Config";
 
 export function loginUser(dataToSubmit) {
@@ -12,7 +14,7 @@ export function loginUser(dataToSubmit) {
     type: LOGIN_USER,
     payload: request,
   };
-}
+};
 
 export function registerUser(dataToSubmit) {
   const request = axios
@@ -24,7 +26,7 @@ export function registerUser(dataToSubmit) {
     type: REGISTER_USER,
     payload: request,
   };
-}
+};
 
 export function auth() {
   const request = axios
@@ -36,7 +38,7 @@ export function auth() {
     type: AUTH_USER,
     payload: request,
   };
-}
+};
 
 export function logoutUser() {
   const request = axios
@@ -48,4 +50,4 @@ export function logoutUser() {
     type: LOGOUT_USER,
     payload: request,
   };
-}
+};

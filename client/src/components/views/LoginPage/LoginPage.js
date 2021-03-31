@@ -2,15 +2,15 @@ import React, { useState } from "react";
 
 import { withRouter } from "react-router-dom";
 
-import { loginUser } from "../../_actions/user_actions";
-
 import { Form, Icon, Input, Button, Typography } from "antd";
-
-import { useDispatch } from "react-redux";
 
 import { Formik } from "formik";
 
 import * as Yup from "yup";
+
+import { loginUser } from "../../_actions/user_actions";
+
+import { useDispatch } from "react-redux";
 
 const { Title } = Typography;
 
@@ -53,11 +53,14 @@ function LoginPage(props) {
                 window.localStorage.setItem("userId", response.payload.userId);
                 props.history.push("/");
               } else {
-                setFormErrorMessage("Check your Account or Password again");
+                setFormErrorMessage("Unable to proceed, please check your Account and Password again");
+                setTimeout(() => {
+                  setFormErrorMessage("");
+                }, 5000);
               }
             })
             .catch((err) => {
-              setFormErrorMessage("Check your Account or Password again");
+              setFormErrorMessage("Please check your Input Fields and Password again");
               setTimeout(() => {
                 setFormErrorMessage("");
               }, 3000);
@@ -67,7 +70,7 @@ function LoginPage(props) {
         }, 500);
       }}
     >
-      
+
       {(props) => {
         const {
           values,
@@ -161,9 +164,9 @@ function LoginPage(props) {
           </div>
         );
       }}
-      
+
     </Formik>
   );
-}
+};
 
 export default withRouter(LoginPage);

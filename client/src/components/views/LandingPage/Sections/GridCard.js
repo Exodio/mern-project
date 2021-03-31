@@ -36,6 +36,6 @@ function GridCards(props) {
       </Col>
     );
   }
-}
+};
 
 export default GridCards;

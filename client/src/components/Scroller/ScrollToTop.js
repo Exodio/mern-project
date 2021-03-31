@@ -6,14 +6,14 @@ class ScrollToTop extends Component {
     this.state = {
       is_visible: false,
     };
-  }
+  };
 
   componentDidMount() {
     var scrollComponent = this;
     document.addEventListener("scroll", function () {
       scrollComponent.toggleVisibility();
     });
-  }
+  };
 
   toggleVisibility() {
     if (window.pageYOffset > 300) {
@@ -25,14 +25,14 @@ class ScrollToTop extends Component {
         is_visible: false,
       });
     }
-  }
+  };
 
   scrollToTop() {
     window.scrollTo({
       top: 0,
       behavior: "smooth",
     });
-  }
+  };
 
   render() {
     const { is_visible } = this.state;
@@ -61,7 +61,7 @@ class ScrollToTop extends Component {
         )}
       </div>
     );
-  }
-}
+  };
+};
 
 export default ScrollToTop;

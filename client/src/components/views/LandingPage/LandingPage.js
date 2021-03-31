@@ -1,10 +1,9 @@
 //Movie Landing Page Component
-import React from "react";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 
 import { Typography, Row, Button, Icon } from "antd";
 
-import { API_URL, API_KEY, IMAGE_URL } from "../../Config";
+import { API_URL, API_KEY, IMAGE_URL, IMAGE_SIZE, POSTER_SIZE } from "../../Config";
 
 import MainImage from "./Sections/MainImage";
 import GridCard from "./Sections/GridCard";
@@ -41,10 +40,11 @@ function LandingPage() {
 
   return (
     <div style={{ width: "100%", margin: 0 }}>
-      {/* Movie Main Image Component */}
+      {/* Movie Main Image */}
       {Movies[0] && (
         <MainImage
-          image={`${IMAGE_URL}w1280${Movies[0].backdrop_path && Movies[0].backdrop_path}`}
+          image={`${IMAGE_URL}${IMAGE_SIZE}${Movies[0].backdrop_path &&
+          Movies[0].backdrop_path}`}
           title={Movies[0].original_title}
           text={Movies[0].overview}
         />
@@ -55,25 +55,25 @@ function LandingPage() {
         <hr />
         {/* Movie Info for Table */}
         <Row gutter={[16, 16]}>
-          {Movies
-          && Movies.map((movie, index) => (
+          {Movies &&
+            Movies.map((movie, index) => (
               <React.Fragment key={index}>
                 <GridCard
-                  image={movie.poster_path
-                    && `${IMAGE_URL}w500${movie.poster_path}`}
+                  image={movie.poster_path &&
+                  `${IMAGE_URL}${POSTER_SIZE}${movie.poster_path}`}
                   movieId={movie.id}
                 />
               </React.Fragment>
             ))}
         </Row>
-        {/* Load More Button Functionality */}
+        {/* Load More Button */}
         <br />
         <div style={{ display: "flex", justifyContent: "center" }}>
-          <Button onClick={handleClick}><Icon type="select"/> More Movies<Icon type="loading"/></Button>
+          <Button onClick={handleClick}>Show More<Icon type="loading"/></Button>
         </div>
       </div>
     </div>
   );
-}
+};
 
 export default LandingPage;

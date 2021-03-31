@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 
-import axios from "axios";
-
 import { Button, Icon } from "antd";
+
+import axios from "axios";
 
 function Favorite(props) {
   const movieId = props.movieId;
@@ -25,7 +25,7 @@ function Favorite(props) {
   const onClickFavorite = () => {
     if (Favorited) {
       axios
-        .post("/api/favorite/removeFromFavorite", movieData)
+        .post("/api/favorites/removeFromFavorite", movieData)
         .then((response) => {
           if (response.data.success) {
             setFavoriteNumber(FavoriteNumber - 1);
@@ -37,7 +37,7 @@ function Favorite(props) {
         .catch((error) => console.error("Error:", error));
     } else {
       axios
-        .post("/api/favorite/addToFavorite", movieData)
+        .post("/api/favorites/addToFavorite", movieData)
         .then((response) => {
           if (response.data.success) {
             setFavoriteNumber(FavoriteNumber + 1);
@@ -52,7 +52,7 @@ function Favorite(props) {
 
   useEffect(() => {
     axios
-    .post("/api/favorite/favoriteNumber", movieData)
+    .post("/api/favorites/favoriteNumber", movieData)
     .then((response) => {
       if (response.data.success) {
         setFavoriteNumber(response.data.favoriteNumber);
@@ -63,7 +63,7 @@ function Favorite(props) {
     .catch((error) => console.error("Error:", error));
 
     axios
-    .post("/api/favorite/favorited", movieData)
+    .post("/api/favorites/favorited", movieData)
     .then((response) => {
       if (response.data.success) {
         setFavorited(response.data.favorited);
@@ -75,12 +75,12 @@ function Favorite(props) {
   }, []);
 
   return (
-    <>
+    <React.Fragment>
       <Button onClick={onClickFavorite}>
       {!Favorited ? "Add to Favorites" : "Remove from Favorites List"} {FavoriteNumber}<Icon type="heart" />
       </Button>
-    </>
+    </React.Fragment>
   );
-}
+};
 
 export default Favorite;

@@ -1,7 +1,7 @@
 {
-  "name": "mern-boiler-plate-app",
+  "name": "exodio-movies",
   "version": "1.0.0",
-  "description": "mern-app",
+  "description": "mern-application",
   "main": "index.js",
   "engine": {
     "node": "14.15.4",

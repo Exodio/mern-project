@@ -1,4 +1,5 @@
 import React from "react";
+
 import { Descriptions } from "antd";
 
 function MovieDetails(props) {
@@ -32,6 +33,6 @@ function MovieDetails(props) {
       </Descriptions.Item>
     </Descriptions>
   );
-}
+};
 
 export default MovieDetails;
