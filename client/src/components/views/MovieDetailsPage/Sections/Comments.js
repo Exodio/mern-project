@@ -45,7 +45,7 @@ function Comments(props) {
   return (
     <div>
       <br />
-      <Title level={3}>Share your opinion about {props.movieTitle}</Title>
+      <Title level={3} style={{ color:"#19adf4" }}>Share your opinion about {props.movieTitle}</Title>
       <hr />
       {/* Comment lists */}
       {props.CommentLists &&

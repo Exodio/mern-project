@@ -12,6 +12,7 @@ import Footer from "../components/views/Footer/Footer";
 // Additional pages of the application
 import MovieDetailsPage from "./views/MovieDetailsPage/MovieDetailsPage";
 import FavoritePage from "./views/FavoritePage/FavoritePage";
+import LocationPage from "./views/LocationPage/LocationPage";
 import NotFound from "../components/views/NotFound/NotFound";
 // Additional features of the application
 import LoadingScreen from "./views/LoadingScreenPage/LoadingScreenPage";
@@ -36,6 +37,7 @@ function App() {
               <Route path="/register" component={Auth(RegisterPage, false)}/>
               <Route path="/movie/:movieId" component={Auth(MovieDetailsPage, true)}/>
               <Route path="/favorite" component={Auth(FavoritePage, true)}/>
+              <Route path="/location" component={Auth(LocationPage, true)}/>
               <Route component={Auth(NotFound, false)} />
             </Switch>
           </div>

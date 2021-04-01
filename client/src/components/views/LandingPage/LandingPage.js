@@ -51,7 +51,7 @@ function LandingPage() {
       )}
       {/* Movie Body */}
       <div style={{ width: "85%", margin: "1rem auto" }}>
-        <Title level={2}>Movies listing by the latest<Icon type="fire"/></Title>
+        <Title level={2} style={{ color:"#19adf4", fontFamily: "Georgia, serif" }}><Icon type="fire" />Browse Through The Latest Up To Date Movies</Title>
         <hr />
         {/* Movie Info for Table */}
         <Row gutter={[16, 16]}>

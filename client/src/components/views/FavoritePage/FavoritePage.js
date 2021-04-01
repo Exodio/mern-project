@@ -69,7 +69,7 @@ function FavoritePage() {
 
     return (
       <div style={{ width: "85%", margin: "3rem auto" }}>
-        <Title level={2}>My Favorite Movies List <Icon type="star"/></Title>
+        <Title level={2} style={{ color:"#19adf4", fontFamily: "serif" }}><Icon type="star" />View My Favorite Movies List</Title>
         <hr />
         <table>
           <thead>
