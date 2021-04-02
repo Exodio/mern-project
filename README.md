@@ -12,20 +12,20 @@ The inspired exodioMovies Web App is built to assist you in keeping track and be
 
 2. :arrows_counterclockwise: The application is running on localhost:3000 and it will automatically load up on your browser.
 
-3. :heavy_exclamation_mark: Remember to place your unique MongoDB key in server/config/dev.js in order to run the application accordingly.
+3. :bangbang: Remember to place your unique MongoDB key in server/config/dev.js in order to run the application accordingly.
 
 ## :bookmark_tabs: Detailed Summary
 
 The application is similar to a movies browser website, throughout which each user can review, rate and comment different movies. Each section has the ability to display different movie and the users are allowed to participate in the rating system, express their opinions and interact in the comment section with one another. There are two implemented role types in this project, as the first one is an unsigned guest role and an already signed up user role. Depending on the role status, the user is allowed to have access to different parts and functionalities based in the perimeters of the application.
 
-## :gem: Technology stack
+## :electric_plug: Technology Stack
 
 - **Frontend:** ReactJS, Redux, HTML, CSS and some additional libraries/tools;
 - **Backend:** NodeJS, ExpressJS;
 - **Database:** MongoDB;
 - **Hosting:** Heroku;
 
-## :star: List of all featured functionalities
+## :star: List Of All Featured Functionalities
 
 - Signing Up / Logging In / Signing Out;
 - Review the current time in live listed in the bottom of the web application;
@@ -36,7 +36,7 @@ The application is similar to a movies browser website, throughout which each us
 - Rate selected movie / Comment selected movie / Reply to selected movie comment / Rate reply comment on selected movie;
 - Remove movie from favorites / Navigate to the nearest cinema center / Enable your current location;
 
-## :pushpin: Build (**available in two main parts, fully responsive and mobile friendly with included few animations**)
+## :hammer: Build (**available in two main parts, fully responsive and mobile friendly with included few animations**)
 
 1. :unlock: **Public part** - which is accessible to everyone, without the necessity of authentication. Every visitor has the ability to:
 
@@ -50,6 +50,8 @@ The application is similar to a movies browser website, throughout which each us
 - Favorite the Movie you Like now and later on Remove it, if you change your mind, you can always check your Favorites listed in the Menu panel and you have the option to Remove it there also, but remember add your Movies first, otherwise you will encounter a sad empty list;
 - Share your experience with each and every Movie the others can also participate as well as you in the Comments section, build a community, Rate a Comment, Reply to Comment, Rate a Reply, communicate with each other and share your opinion, it`s free;
 - If you are in a rush and you need to locate a movie theater fast, navigate to the Menu and visit the Location Page, where you can Search Live, Enable your Location, Zoom in, Enter Full Screen Mode and find the nearest Cinema City, which may be right next to you;
-- By clicking on the Logout button you as a user have been Loged Out, and remember, that there is a Loading screen everytime, the application does important stuff.
+- By clicking on the Logout button you as a user have been Loged Out, and remember, that there is a Loading screen everytime the route occurs change.
 
-## :wrench: Toolkit (libraries used)
+# :closed_book:[Toolkit Dependencies(libraries used in the project)](./info/movie-application-dependencies-used.txt);
+# :blue_book: [App Backbone Structuring(action steps followed for the boiler plate structuring)](./info/movie-boiler-plate.txt);
+# :green_book: [App Action Planning(action plan followed during the application development)](./info/movies-action-plan.txt);
