@@ -29,28 +29,28 @@ The application is similar to a movies browser website, throughout which each us
 
 - Signing Up / Logging In / Signing Out;
 - Review the current time in live listed in the bottom of the web application;
-- View fetched movie data at the landing page / Load more movies / Search for specific movie;
-- Get all the movie related information you need in one place;
-- View selected movie details / Add selected movie to favorite list / Remove movie from favorite list / View movie actors cast;
+- View fetched movie data at the Landing page / Load more movies / Search for specific movie;
+- Get all the movies related information you need in one place;
+- View selected movie Details / Add selected movie to Favorite list / Remove movie from Favorite list / View movie Actors cast;
 - Share your experience with other users;
-- Rate selected movie / Comment selected movie / Reply to selected movie comment / Rate reply comment on selected movie;
-- Remove movie from favorites / Navigate to the nearest cinema center / Enable your current location;
+- Rate selected movie / Comment selected movie / Reply to selected movie Comment / Rate reply Comment in selected movie;
+- Remove movie from Favorites / Navigate to the Nearest cinema center / Enable your current Location;
 
-## :hammer: Build (**available in two main parts, fully responsive and mobile friendly with included few animations**)
+## :hammer: Build (**available in two main parts, fully responsive and mobile friendly**)
 
 1. :unlock: **Public part** - which is accessible to everyone, without the necessity of authentication. Every visitor has the ability to:
 
 - Browse through the Landing Page, which by default lists all of the latest Movies from an API.
-- Load More movies, once reviewed/or not, all of the already listed ones by navigating at the very bottom of he page, check your current time, as it is listed while you are there, as well as search for your desired movie in the search box. Don`t forget to click on the scroll icon on the right to navigate to the very to faster.
-- Redirect to the Home Page, by clicking on the exodioMovies logo and in case you route to a non-existing path or user credentials required one, you will come across the special Not Found Page.
+- Load More movies, once reviewed/or not, all of the already listed ones, navigate at the very bottom of the page, check your Current Time, while you are there, as well as Search for your desired movie in the Search Box. Navigate to the very top by clicking on the Scroll Button.
+- Redirect to the Home Page, by clicking on the Homepage Logo and in case you route to a non-existing path or to a user credentials required one, you will come across with the Not Found Page.
 
-2. :lock: **Private part** - only for logged in users. After successful registration using the given (by the user) unique credentials, you can use the full functionality of the application:
+2. :lock: **Private part** - only for logged in users. After successful registration using the given (by the user) unique credentials, you will be able to use the full functionality of the application:
 
-- Browse through the Landing Page again, but this time click on different movies and view their Details, toggle to see the Actors participation in the desired movie;
-- Favorite the Movie you Like now and later on Remove it, if you change your mind, you can always check your Favorites listed in the Menu panel and you have the option to Remove it there also, but remember add your Movies first, otherwise you will encounter a sad empty list;
-- Share your experience with each and every Movie the others can also participate as well as you in the Comments section, build a community, Rate a Comment, Reply to Comment, Rate a Reply, communicate with each other and share your opinion, it`s free;
-- If you are in a rush and you need to locate a movie theater fast, navigate to the Menu and visit the Location Page, where you can Search Live, Enable your Location, Zoom in, Enter Full Screen Mode and find the nearest Cinema City, which may be right next to you;
-- By clicking on the Logout button you as a user have been Loged Out, and remember, that there is a Loading screen everytime the route occurs change.
+- Browse through the Landing Page, but this time, if you click on different movies you will be able to view their Details, also you can toggle in order to see Actors participation in the desired movie, as well as the current movie Rating;
+- Favorite the Movie you Like now and later on you can Remove it with one click, you can always check your Favorites listed in the Menu Panel at the very top right corner and you have the option to Remove any unwanted movie there also, but remember to add a Movies first, otherwise you will encounter a sad empty list in the Favorite Page;
+- Share your experience on each and every Movie, so that the others can also participate with you via the public Comments section, build a community, Rate a Comment, Reply to Comment, Rate a Reply, communicate with each other and share your opinion;
+- If you are in a rush and you need to locate a movie theater fast, navigate to the Menu Panel at the very top right corner and visit the Location Page, where you can Search Live up to date, as you Enable your Location, you can also Zoom In and Out, apply Full Screen Mode and find the nearest Cinema City, which may be right next to you;
+- By clicking on the Logout button you as a user you will be Loged Out, and last but not least, there is a Loading Page Screening, everytime any route occurs changes.
 
 # :closed_book:[Toolkit Dependencies(libraries used in the project)](./info/movie-application-dependencies-used.txt);
 # :blue_book: [App Backbone Structuring(action steps followed for the boiler plate structuring)](./info/movie-boiler-plate.txt);
