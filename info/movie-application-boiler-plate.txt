@@ -1,0 +1,49 @@
+MOVIES-APP - BOILER-PLATE
+
+- Init files directory
+- Install and setup Node.js
+- Install and setup Express.js
+- Install and setup MongoDB
+- Register a MongoDB account, create and setup a MongoDB cluster
+- Setup Express and configurate database and server port
+- Install and setup Mongoose
+- Create and setup User model schema
+- Create and setup a post Register schema functionality
+- Setup Git and Github project repository
+- Install and setup Body-parser
+- Install and setup Cookie-parser
+- Test post new user via Postman
+- Validate and test user data in MongoDB Atlas Cluster collection
+- Setup and configurate Nodemon
+- Secure the private information and the MongoDB connection string
+- Setup and distinguish the development and production keys depending on the environment
+- Secure the User's password with Bcrypt and setup the hashing method
+- Implement Login functionality
+- Generate token from the User's data with JsonWebToken
+- Validate the User's data and generate token
+- Save the new generated token in the User cookies
+- Implement authentication middleware
+- Implement Logout functionality
+- Separate listed files into a server folder
+- Deploy the server backend configuration to Heroku
+- Create a new folder for the front-end files into a client folder
+- Initialize create React application and specify initialization instructions
+- Setup Ant Design
+- Setup and configurate Axios for requests
+- Setup and configurate React-router-dom
+- Setup and configurate manual server with Http-proxy-middleware
+- Setup and configurate Concurrently
+- Setup and configurate Redux
+- Setup and configurate React-redux
+- Setup and configurate Redux-promise
+- Setup and configurate Redux-thunk
+- Review Login functionality and validations with Redux
+- Setup Redux state and distinguish _actions and _reducers
+- Setup error handling for authentication
+- Setup Formik for forms validation
+- Setup Yup for additional form schema validations
+- Review Register functionality and validations with Redux
+- Setup Moment for unix timestamp in seconds gravatar generation
+- Implement Hoc authentication validation for current status
+- Create additional view collection in components
+- Proceed with implementation of additional view and layout pages

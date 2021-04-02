@@ -1,0 +1,124 @@
+MOVIES-APP - ACTION-PLAN
+
+Implement movieDB API configuration and functionality
+-refactoring additional pages
+-sign up in order to get api_key
+-set config for the movieDB
+-get the api_url and set it
+Resources used: https://www.themoviedb.org/ , https://www.themoviedb.org/settings/api; https://developers.themoviedb.org/3/movies/get-movie-account-states ;
+
+Set Landing Page view and functionality
+-make landing page template
+-put all of the fetched data from the movieAPI into the state
+-create MainImage Component
+-create GridCards Component
+-set the Landing Page route and authentication
+-create Load More functionality
+Resources used: https://reactjs.org/docs/hooks-effect.html , https://reactjs.org/docs/hooks-state.html , https://ant.design/components/grid/ ;
+
+Set Movie Details Page view and functionality
+-fetch Details information for each specific Movie(props.match.params.movieId)
+-set path restriction(accessible only for logged in users)
+-put all of the information(fetched from Movie API into state)
+-create Movie Detail template
+-fetch cast's information data
+-put all of the cast's info(fetched cast into state)
+-populate all of the data inside the browser's state
+-fixed bug(Warning: Updating a style property during rerender)
+Resources used: https://reactjs.org/docs/hooks-effect.html , https://reactjs.org/docs/hooks-state.html , https://ant.design/components/grid/ , https://ant.design/components/grid/#Row , https://ant.design/components/typography/ , https://ant.design/components/button/ , https://ant.design/components/descriptions/ ;
+
+Implement Favorite page feature and functionality
+-create Favorite model(required fields: userForm, movieId, movieTitle, movieImage, movieRunTime)
+-create Favorite Page template
+-add Favorite page view to routes
+-add Favorite route to index
+-create the favorite button UI
+-fetch the Favorite Movie Data from MongoDB
+-populate the data in the browser
+-fetch the number of how many people added a specific movie to their personal favorite list
+-fetch the information of the current state of movie(check if x already added: add should equal 0, remove should equal 1)
+-make the favourite feature to be able to added to favourite list(when not added: add to favourite list)
+-implement Remove from Favorite functionality
+-make the favourite feature to be able to be removed from favourite list(when already added: remove from favourite list)
+-additional implementations(refactor footer view, add site icons in navbar)
+-add assets folder for additional icons and logos
+-implement scroll to top feature and functionality
+-create scroll icon and set it as a permanent link url
+-create logo icon and set it as a permanent link url
+-create fav icon and add it to public folder
+Resources used: https://ant.design/components/icon/ , https://www.coderomeos.org/scroll-to-top-of-the-page-a-simple-react-component , https://postimages.org/ , https://www.ucraft.com/free-logo-maker#create-logo , https://www.favicon-generator.org/ , https://www.robinwieruch.de/react-remove-item-from-list , https://ant.design/components/popover/ , https://www.npmjs.com/package/axios ; 
+
+Implement Page Not Found and Loading feature and functionality
+-create NotFound page
+-add NotFound to app
+-customize the page layout style
+-create Loading component
+-add logo as a url and implement styles
+-implement functionality via hooks in app
+Resources used: https://betterprogramming.pub/a-quick-and-easy-react-js-loading-screen-with-hooks-940feccd553f#_=_ , https://ultimatecourses.com/blog/react-router-not-found-component , https://postimages.org/ ;
+
+Implement Comment feature and functionality
+-create Comment model(required fields: writer, postId, responseTo, content)
+-make Comment component in MovieDetailsPage
+-create a template for Comments
+-make handleChange functionality
+-make onSubmit functionality
+-update the saved data into the parent component(MovieDetailsPage)
+-display the comment data lists into the console panel
+-create a SingleComment component(singleComponent->Comment->MovieDetailsPage)
+-create a SingleComment template
+-create an openReply functionality
+-create a handleChange functionality
+-create onSubmit functionality
+-update the saved data into the parent component(Comments)
+-crete a ReplyComment component in Comments.js
+-create a template for ReplyComment
+Neka zvunna po telefon che taka mnogo trqbva da pisha sec
+
+-create a renderReplyComment functionality
+-calculate and list the child Comments number
+Resources used: https://ant.design/components/input/ , https://ant.design/components/typography/ , https://ant.design/components/avatar/ , https://ant.design/components/icon/ , https://react-redux.js.org/api/hooks ;
+
+Implement Like and Dislike feature and functionality
+-create Like and Dislike models(required fields: userId, commentId, movieId)
+-create a template for the Like and Dislike button with Antd
+-fetch the current Like and Dislike information from MongoDB
+-test and list as you go through possible Like click cases(Nothing is clicked-> increase 1 Like; Like is already clicked-> decrease 1 Like; Dislike is already clicked-> increase 1 Like and decrease 1 Dislike)
+-test and list as through possible Dislike click cases(Nothing is clicked-> increase 1 Dislike; Like is already clicked-> decrease 1 Dislike; Dislike is already clicked-> increase 1 Dislike and decrease 1 Like)
+Resources used: https://reactjs.org/docs/hooks-state.html , https://ant.design/components/tooltip/ , https://ant.design/components/icon/ , https://ant.design/components/collapse/#components-collapse-demo-basic ;
+
+Implement Location Page feature and functionality
+-create an initial LocationPage folder
+-add location route to the NavBar
+-add LocationPage to App
+-customize the page layout and style
+-Install React-map-gl and react-map-geocoder in order to get geolocate control
+-get your custom latitude and longitude coodrinates
+-register an account and generate custom token from MapBox
+-create a custom mapbox design map and list it in the MapGL
+-import dist gl css for Geocoder view
+-create a new config file in the client folder in order to export the api key
+-secure private token and list it to gitignore
+-implement location function with viewports
+-render title, viewports with token
+-implement main MapGL functionality with Mapbox
+-implement title from antd to the page
+-implement Geocoder into MapboxMap
+-implement GeolocateControl into MapboxMap
+-implement NavigationControl into MapboxMap
+-implement FullscreenControl into MapboxMap
+Resources used: https://www.gps-coordinates.net/ , https://docs.mapbox.com/studio-manual/guides/ , https://www.npmjs.com/package/react-map-gl , https://www.npmjs.com/package/react-map-gl-geocoder , https://docs.mapbox.com/mapbox-gl-js/api/ , https://docs.mapbox.com/api/overview/ , https://docs.mapbox.com/help/getting-started/access-tokens/#how-access-tokens-work , https://docs.mapbox.com/mapbox-gl-js/api/markers/#geolocatecontrol , https://docs.mapbox.com/mapbox-gl-js/example/mapbox-gl-geocoder/ , https://visgl.github.io/react-map-gl/docs/get-started/get-started , https://developer.mozilla.org/en-US/docs/Web/API/PositionOptions , https://codeburst.io/how-to-display-a-mapbox-map-and-geocoder-mapbox-react-tutorial-part-1-223c57058d89 , https://docs.mapbox.com/mapbox-gl-js/api/markers/#geolocatecontrol , https://visgl.github.io/react-map-gl/docs/api-reference/fullscreen-control , https://docs.mapbox.com/mapbox-gl-js/example/ ;
+
+Implement Search feature and functionality
+-implement the Search feature at the Landing Page
+-create an input for the Search Form via Antd
+-add onSubmit functionality to the Form
+-create a handlerOnSubmit functionality for the Form
+-create a onChange functionality
+-prevent default on handleOnChangeSubmit
+-fetch Search query and SearchTerms
+-trigger the Search condition in order to get the specified Movie data
+-update the search data into the parent Component(Landing Page)
+-setMovies with the response under results and clear the searchTerms
+-additional functionalities implemented(live ticking clock Component at Footer page view)
+Resources used: https://ant.design/components/input/ , https://ant.design/components/form/ , https://dev.to/asimdahall/simple-search-form-in-react-using-hooks-42pg , https://reactjs.org/docs/react-component.html , https://reactjs.org/docs/hooks-state.html https://openclassrooms.com/en/courses/4286486-build-web-apps-with-reactjs/4286711-build-a-ticking-clock-component ;

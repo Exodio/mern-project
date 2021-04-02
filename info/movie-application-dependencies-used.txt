@@ -1,0 +1,30 @@
+BACK-END(server) - DEPENDENCIES-TOOLKIT - USED
+
+- node - Used as the main back-end runtime environment. Resources: https://nodejs.org/en/about/
+- express - Used as the back-end server-side logic solution. Resource: https://expressjs.com/en/starter/installing.html
+- mongoDB - Used as the back-end database provider. Resources: https://www.mongodb.com/
+- mongoose - Used as the schema based solution model for the data managing and validations. Resources: https://mongoosejs.com/docs/guide.html
+- body-parser - Used as a http post request middleware, which reads and parses each json stream from Express and exposes it on req.body. Resources: https://www.npmjs.com/package/body-parser
+- cookie-parser - Used as a middleware, which parses cookies attached to the client request object. Resources: https://www.npmjs.com/package/cookie-parser
+- nodemon - Used as a ultility, which monitors the back-end source code and it automatically restart the server for any changes that are applied. Resources: https://www.npmjs.com/package/nodemon
+- bcrypt - Helped us to secure the user's password by hashing it with a salt based technique generation. Resources: https://www.npmjs.com/package/bcrypt
+- jsonwebtoken - Helped us to generate a user token, based on the user information, upon successful security passing. Resources: https://www.npmjs.com/package/jsonwebtoken
+- http-proxy-middleware - Helped us to avoid cross-origin restriction issues on a local development machine. Resources: https://www.npmjs.com/search?q=http-proxy-middleware
+- concurrently - Helped us to to run our back-end and front-end at the same time, under one terminal. Resources: https://www.npmjs.com/package/concurrently
+
+
+FRONT-END(client) - DEPENDENCIES-TOOLKIT - USED
+
+- react - Helped to develop the front-end of the application. Resources: https://reactjs.org/docs/getting-started.html
+- axios - Helped us to make HTTP client promise-based requests to fetch and save data. Resources: https://www.npmjs.com/package/axios
+- react-router-dom - Helped us with client side routing of the application. Resources: https://reactrouter.com/web/guides/quick-start
+- redux - Helps us to manage our client's state and store state data. Resources: https://redux.js.org/introduction/installation
+- react-redux - Helps us to bind our React application for Redux. It let's our React components to read data from the Redux store, and dispatch actions to it in order to to update state. Resources: https://react-redux.js.org/introduction/getting-started
+- redux-promise - Helps us to accept promises by intercepting the promise and dispatching its action depeneding, if the promise resolves or rejects. Resources: https://github.com/redux-utilities/redux-promise
+- redux-thunk - Helps us to call the action creators that return a function instead of an object. This helps to dispatch our actions inside of the function's body. Resources: https://github.com/reduxjs/redux-thunk
+- antd - Helped with the design layout of the application. Resources: https://ant.design/docs/react/introduce
+- formik - Helped with the dynamic validations of the application forms. Resources: https://formik.org/docs/overview
+- yup - Helped with additional match based validation schema to simplify the application's forms. Resources: https://www.techzaion.com/validation-with-yup
+- moment - Helped us to miniplate current date to result a number of seconds in order to list different gravatar for each new created user. Resources: https://www.geeksforgeeks.org/moment-js-moment-unix-function/
+- react-map-gl - Helped with the integration and usage of Mapbox GL in React. Resources: https://visgl.github.io/react-map-gl/docs/get-started/get-started
+- react-map-gl-geocoder -Helped with the wrapping of the mapbox-gl-geocoder. Resources: https://www.npmjs.com/package/react-map-gl-geocoder
