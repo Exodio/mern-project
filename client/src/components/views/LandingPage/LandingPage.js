@@ -8,7 +8,6 @@ import MainImage from "./Sections/MainImage";
 import GridCard from "./Sections/GridCard";
 
 const { Title } = Typography;
-
 const { Search } = Input;
 
 function LandingPage() {
@@ -102,7 +101,7 @@ function LandingPage() {
               placeholder="Or Search By Name..."
               enterButton
               allowClear
-              />
+            />
           </Form>
         </div>
 

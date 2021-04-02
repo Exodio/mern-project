@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 
+import LiveClock from "../LiveClock/LiveClock";
+
 import { Icon } from "antd";
 
 class Footer extends Component {
@@ -8,7 +10,7 @@ class Footer extends Component {
       <div
         style={{
           fontFamily: "cursive",
-          height: "80px",
+          height: "90px",
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
@@ -21,6 +23,10 @@ class Footer extends Component {
         <div>
           <p>
           &copy; <a href="https://github.com/Exodio" alt="github-profile"><Icon type="github"/>exodio</a> | All Rights Reserved. 
+          </p>
+          {/* Live Clock */}
+          <p>
+          <LiveClock />
           </p>
         </div>
       </div>
