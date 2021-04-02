@@ -30,7 +30,7 @@ const fullscreenControlStyle = {
 };
 
 function LocationPage() {
-  const [Viewport, SetViewPort] = useState({
+  const [Viewport, setViewport] = useState({
     latitude: 42.6978634,
     longitude: 23.3221789,
     zoom: 12,
@@ -40,7 +40,7 @@ function LocationPage() {
   const mapRef = useRef();
 
   const handleViewportChange = useCallback(
-  (newViewport) => SetViewPort(newViewport), []);
+  (newViewport) => setViewport(newViewport), []);
 
   return (
     <div>
