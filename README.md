@@ -52,6 +52,6 @@ The application is similar to a movies browser website, throughout which each us
 - If you are in a rush and you need to locate a movie theater fast, navigate to the Menu Panel at the very top right corner and visit the Location Page, where you can Search Live up to date, as you Enable your Location, you can also Zoom In and Out, apply Full Screen Mode and find the nearest Cinema City, which may be right next to you;
 - By clicking on the Logout button you as a user you will be Loged Out, and last but not least, there is a Loading Page Screening, everytime any route occurs changes.
 
-# :closed_book:[Toolkit Dependencies(libraries used in the project)](./info/movie-application-dependencies-used.txt);
-# :blue_book: [App Backbone Structuring(action steps followed for the boiler plate structuring)](./info/movie-boiler-plate.txt);
-# :green_book: [App Action Planning(action plan followed during the application development)](./info/movies-action-plan.txt);
+# :closed_book:[Toolkit Dependencies(libraries used in the project)](https://github.com/Exodio/mern-project/blob/main/info/movie-application-dependencies-used.txt);
+# :blue_book: [App Backbone Structuring(action steps followed for the boiler plate structuring)](https://github.com/Exodio/mern-project/blob/main/info/movie-application-boiler-plate.txt);
+# :green_book: [App Action Planning(action plan followed during the application development)](https://github.com/Exodio/mern-project/blob/main/info/movie-application-action-plan.txt);
