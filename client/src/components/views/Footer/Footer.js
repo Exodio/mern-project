@@ -25,9 +25,7 @@ class Footer extends Component {
           &copy; <a href="https://github.com/Exodio" alt="github-profile"><Icon type="github"/>exodio</a> | All Rights Reserved. 
           </p>
           {/* Live Clock */}
-          <p>
           <LiveClock />
-          </p>
         </div>
       </div>
     );

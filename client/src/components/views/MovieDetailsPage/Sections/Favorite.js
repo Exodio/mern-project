@@ -28,7 +28,7 @@ function Favorite(props) {
         .post("/api/favorites/removeFromFavorite", movieData)
         .then((response) => {
           if (response.data.success) {
-            setFavoriteNumber(FavoriteNumber - 1);
+            setFavoriteNumber((oldRemoveFromFavoriteNumber) => oldRemoveFromFavoriteNumber - 1);
             setFavorited(!Favorited);
           } else {
             alert("Failed to Remove Movie from Favorite");
@@ -40,7 +40,7 @@ function Favorite(props) {
         .post("/api/favorites/addToFavorite", movieData)
         .then((response) => {
           if (response.data.success) {
-            setFavoriteNumber(FavoriteNumber + 1);
+            setFavoriteNumber((oldAddToFavorite) => oldAddToFavorite + 1);
             setFavorited(!Favorited);
           } else {
             alert("Failed to Add Movie to Favorite");

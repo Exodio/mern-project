@@ -66,12 +66,12 @@ function LikesDislikes(props) {
         .post("/api/likes/upLike", data)
         .then((response) => {
           if (response.data.success) {
-            setLikes(Likes + 1);
+            setLikes((oldUpLikes) => oldUpLikes + 1);
             setLikeAction("liked");
             // Validate, If the dislike button is already clicked
             if (DislikeAction !== null) {
               setDislikeAction(null);
-              setDislikes(Dislikes - 1);
+              setDislikes((oldDislikes) => oldDislikes - 1);
             }
           } else {
             alert("Failed to Increase Likes");
@@ -83,7 +83,7 @@ function LikesDislikes(props) {
         .post("/api/likes/unLike", data)
         .then((response) => {
           if (response.data.success) {
-            setLikes(Likes - 1);
+            setLikes((oldUnLikes) => oldUnLikes - 1);
             setLikeAction(null);
           } else {
             alert("Failed to Decrease Likes");
@@ -99,7 +99,7 @@ function LikesDislikes(props) {
         .post("/api/likes/unDislike", data)
         .then((response) => {
           if (response.data.success) {
-            setDislikes(Dislikes - 1);
+            setDislikes((oldUnDislikes) => oldUnDislikes - 1);
             setDislikeAction(null);
           } else {
             alert("Failed to Decrease Dislikes");
@@ -111,12 +111,12 @@ function LikesDislikes(props) {
         .post("/api/likes/upDislike", data)
         .then((response) => {
           if (response.data.success) {
-            setDislikes(Dislikes + 1);
+            setDislikes((oldUpDislikes) => oldUpDislikes + 1);
             setDislikeAction("disliked");
             // Validate, If the like button is already clicked
             if (LikeAction !== null) {
               setLikeAction(null);
-              setLikes(Likes - 1);
+              setLikes((oldUpLikes) => oldUpLikes - 1);
             }
           } else {
             alert("Failed to Increase Dislikes");
@@ -130,15 +130,27 @@ function LikesDislikes(props) {
     <React.Fragment>
       <span key="comment-basic-like">
         <Tooltip title="Like">
-          <Icon type="like" theme={ LikeAction === "liked" ? "filled" : "outlined" } onClick={onLike}/>
+          <Icon
+            type="like"
+            theme={LikeAction === "liked" ? "filled" : "outlined"}
+            onClick={onLike}
+          />
         </Tooltip>
-        <span style={{ paddingLeft: "3px", paddingRight: "3px", cursor: "auto" }}>{Likes}</span>
+        <span style={{ paddingLeft: "3px", paddingRight: "3px", cursor: "auto" }}>
+          {Likes}
+        </span>
       </span>
       <span key="comment-basic-dislike">
         <Tooltip title="Dislike">
-          <Icon type="dislike" theme={ DislikeAction === "disliked" ? "filled" : "outlined" } onClick={onDislike}/>
+          <Icon
+            type="dislike"
+            theme={DislikeAction === "disliked" ? "filled" : "outlined"}
+            onClick={onDislike}
+          />
         </Tooltip>
-        <span style={{ paddingLeft: "3px", cursor: "auto" }}>{Dislikes}</span>
+        <span style={{ paddingLeft: "3px", cursor: "auto" }}>
+          {Dislikes}
+        </span>
       </span>
     </React.Fragment>
   );
