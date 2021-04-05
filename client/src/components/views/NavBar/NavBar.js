@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 
+import { Link } from "react-router-dom";
+
 import { Drawer, Button, Icon } from "antd";
 
 import LeftMenu from "./Sections/LeftMenu";
@@ -25,7 +27,7 @@ function NavBar() {
       style={{ position: "fixed", zIndex: 1, width: "100%" }}
     >
       <div className="menu__logo">
-      <a href="/"><img src="https://i.postimg.cc/NGzrbXSH/navbar-main-logo.png" alt="home-logo-icon" style={{ width: '100%', marginTop:"-25px" }} /></a>
+      <Link to="/"><img src="https://i.postimg.cc/NGzrbXSH/navbar-main-logo.png" alt="home-logo-icon" style={{ width: '100%', marginTop:"-25px" }} /></Link>
       </div>
       <div className="menu__container">
         <div className="menu_left">

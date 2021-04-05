@@ -12,7 +12,9 @@ const { Search } = Input;
 
 function LandingPage() {
   const [Movies, setMovies] = useState([]);
+  const [MainMovieImage, setMainMovieImage] = useState(null);
   const [CurrentPage, setCurrentPage] = useState(0);
+  const [Loading, setLoading] = useState(true);
   const [SearchTerms, setSearchTerms] = useState("");
 
   useEffect(() => {
@@ -29,15 +31,14 @@ function LandingPage() {
       .then((response) => response.json())
       .then((response) => {
         setMovies([...Movies, ...response.results]);
+        setMainMovieImage(MainMovieImage || response.results[0]);
         setCurrentPage(response.page);
-      })
+      }, setLoading(false))
       .catch((error) => console.error("Error:", error));
   };
 
   const handleOnClickLoadMore = () => {
-    const endpoint = `${API_URL}movie/popular?api_key=${API_KEY}&language=en-US&page=${
-      CurrentPage + 1
-    }`;
+    const endpoint = `${API_URL}movie/popular?api_key=${API_KEY}&language=en-US&page=${CurrentPage + 1}`;
     fetchMovies(endpoint);
   };
 
@@ -67,16 +68,16 @@ function LandingPage() {
   return (
     <div style={{ width: "100%", margin: 0 }}>
       {/* Movie Main Image */}
-      {Movies[0] && (
+      {MainMovieImage && (
         <MainImage
           image={`${IMAGE_URL}${IMAGE_SIZE}${
-            Movies[0].backdrop_path && Movies[0].backdrop_path
+            MainMovieImage.backdrop_path && MainMovieImage.backdrop_path
           }`}
-          title={Movies[0].original_title}
-          text={Movies[0].overview}
+          title={MainMovieImage.original_title}
+          text={MainMovieImage.overview}
         />
       )}
-      {/* Movie Body */}
+      {/* Movie Body Title */}
       <div style={{ width: "85%", margin: "1rem auto" }}>
         <Title
           level={2}
@@ -85,7 +86,6 @@ function LandingPage() {
           <Icon type="fire" />
           Browse Through The Latest Up To Date Movies
         </Title>
-
         {/* Search Feature */}
         <div
           style={{
@@ -104,23 +104,25 @@ function LandingPage() {
             />
           </Form>
         </div>
-
         <hr />
-        {/* Movie Info for Table */}
+        {/* Movie Body Information For Table */}
         <Row gutter={[16, 16]}>
           {Movies &&
             Movies.map((movie, index) => (
               <React.Fragment key={index}>
                 <GridCard
                   image={
-                    movie.poster_path &&
-                    `${IMAGE_URL}${POSTER_SIZE}${movie.poster_path}`
+                    movie.poster_path
+                      ? `${IMAGE_URL}${POSTER_SIZE}${movie.poster_path}`
+                      : null
                   }
                   movieId={movie.id}
+                  movieName={movie.original_title}
                 />
               </React.Fragment>
             ))}
         </Row>
+        {Loading && <div>Loading...</div>}
         {/* Load More Button */}
         <br />
         <div style={{ display: "flex", justifyContent: "center" }}>

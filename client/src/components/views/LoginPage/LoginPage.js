@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { withRouter } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 
 import { Form, Icon, Input, Button, Typography } from "antd";
 
@@ -84,7 +84,7 @@ function LoginPage(props) {
         return (
           <div className="app">
             <Title level={2}>Log In</Title>
-            <form onSubmit={handleSubmit} style={{ width: "350px" }}>
+            <Form onSubmit={handleSubmit} style={{ width: "350px" }}>
               <Form.Item required>
                 <Input
                   id="email"
@@ -158,9 +158,9 @@ function LoginPage(props) {
                     Log in
                   </Button>
                 </div>
-                Or <a href="/register">Register now!</a>
+                Or <Link to="/register">Register now!</Link>
               </Form.Item>
-            </form>
+            </Form>
           </div>
         );
       }}

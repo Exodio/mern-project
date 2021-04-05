@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useState } from "react";
 
 import { Typography, Popover, Button, Icon } from "antd";
 

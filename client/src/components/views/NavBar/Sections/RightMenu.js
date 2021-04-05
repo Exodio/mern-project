@@ -1,6 +1,6 @@
 import React from "react";
 
-import { withRouter } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 
 import { Menu, Icon } from "antd";
 
@@ -27,10 +27,10 @@ function RightMenu(props) {
     return (
       <Menu mode={props.mode}>
         <Menu.Item key="mail">
-          <a href="/login">Sign In <Icon type="login"/></a>
+          <Link to="/login">Sign In <Icon type="login"/></Link>
         </Menu.Item>
         <Menu.Item key="app">
-          <a href="/register">Sign Up <Icon type="rocket"/></a>
+          <Link to="/register">Sign Up <Icon type="rocket"/></Link>
         </Menu.Item>
       </Menu>
     );
@@ -38,7 +38,7 @@ function RightMenu(props) {
     return (
       <Menu mode={props.mode}>
         <Menu.Item key="logout">
-          <a href="/" onClick={logoutHandler}>Logout <Icon type="logout"/></a>
+          <Link to="/" onClick={logoutHandler}>Logout <Icon type="logout"/></Link>
         </Menu.Item>
       </Menu>
     );

@@ -1,6 +1,8 @@
 //Movie Landing Page Grid Cards Component
 import React from "react";
 
+import { Link } from "react-router-dom";
+
 import { Col } from "antd";
 
 import { IMAGE_URL } from "../../../Config";
@@ -25,13 +27,13 @@ function GridCards(props) {
     return (
       <Col key={key} lg={6} md={8} xs={24}>
         <div style={{ position: "relative" }}>
-          <a href={`/movie/${movieId}`}>
+          <Link to={`/movie/${movieId}`}>
             <img
               style={{ width: "100%", height: "320px" }}
               src={image}
               alt={movieName}
             />
-          </a>
+          </Link>
         </div>
       </Col>
     );

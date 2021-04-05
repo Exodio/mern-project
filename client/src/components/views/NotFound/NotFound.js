@@ -1,4 +1,7 @@
 import React, { Component } from "react";
+
+import { Link } from "react-router-dom";
+
 import "./NotFound.css";
 
 class NotFound extends Component {
@@ -22,7 +25,7 @@ class NotFound extends Component {
           </div>
         </div>
         <p className="tipsiz-text">
-          maybe you want to go <a href="/">back ?</a>
+          maybe you want to go <Link href="/">back ?</Link>
         </p>
       </div>
     );
