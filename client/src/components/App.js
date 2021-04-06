@@ -13,8 +13,9 @@ import Footer from "../components/views/Footer/Footer";
 import MovieDetailsPage from "./views/MovieDetailsPage/MovieDetailsPage";
 import FavoritePage from "./views/FavoritePage/FavoritePage";
 import LocationPage from "./views/LocationPage/LocationPage";
-import NotFound from "../components/views/NotFound/NotFound";
+import AboutPage from "./views/AboutPage/AboutPage";
 // Additional features of the application
+import NotFound from "../components/views/NotFound/NotFound";
 import LoadingScreen from "./views/LoadingScreenPage/LoadingScreenPage";
 import Scroller from "../components/Scroller/ScrollToTop";
 
@@ -22,7 +23,7 @@ function App() {
   const [Loading, setLoading] = useState(false);
 
   useEffect(() => {
-    setTimeout(() => setLoading(true), 3000);
+    setTimeout(() => setLoading(true), 30);
   }, []);
 
   return (
@@ -38,7 +39,8 @@ function App() {
               <Route path="/movie/:movieId" component={Auth(MovieDetailsPage, true)}/>
               <Route path="/favorite" component={Auth(FavoritePage, true)}/>
               <Route path="/location" component={Auth(LocationPage, true)}/>
-              <Route component={Auth(NotFound, false)} />
+              <Route path="/about" component={Auth(AboutPage, false)}/>
+              <Route component={Auth(NotFound, null)} />
             </Switch>
           </div>
           <Scroller />

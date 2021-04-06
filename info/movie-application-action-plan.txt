@@ -122,3 +122,14 @@ Implement Search feature and functionality
 -setMovies with the response under results and clear the searchTerms
 -additional functionalities implemented(live ticking clock Component at Footer page view)
 Resources used: https://ant.design/components/input/ , https://ant.design/components/form/ , https://dev.to/asimdahall/simple-search-form-in-react-using-hooks-42pg , https://reactjs.org/docs/react-component.html , https://reactjs.org/docs/hooks-state.html https://openclassrooms.com/en/courses/4286486-build-web-apps-with-reactjs/4286711-build-a-ticking-clock-component ;
+
+Implement About Page feature and functionality
+-add background image
+-add page details
+-add responsive design to the page
+-add background image to assets as a backup
+-upload background image to a public API
+-list public URL to styles
+-add route to main app
+-additional refactoring(add additional auth for BE routes, apply style fixes for favorites page)
+Resources used: https://reactrouter.com/web/guides/quick-start , https://ant.design/components/icon/ , https://postimages.org/ ;

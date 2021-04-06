@@ -69,7 +69,9 @@ function FavoritePage() {
 
     return (
       <div style={{ width: "85%", margin: "3rem auto" }}>
-        <Title level={2} style={{ color:"#19adf4", fontFamily: "serif" }}><Icon type="star" />View My Favorite Movies List</Title>
+        <Title level={2} style={{ color: "#19adf4", fontFamily: "serif" }}>
+          <Icon type="star" />View My Favorite Movies List
+        </Title>
         <hr />
         <table>
           <thead>
@@ -78,7 +80,25 @@ function FavoritePage() {
               <th>Movie Length</th>
             </tr>
           </thead>
-          <tbody>{Favorites.length === 0 ? <h3 style={{ display: "flex", justifyContent: "center", alignItems: "center", height: "150px", fontFamily: "cursive" }}>Sorry but your list is empty and there is nothing to display.. <Icon type="frown"/></h3> : renderMovieCards}</tbody>
+          <tbody>
+            {Favorites.length === 0 ? (
+              <tr>
+                <td
+                  style={{
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    height: "150px",
+                    fontFamily: "cursive",
+                  }}
+                >
+                  Sorry but your list is empty and there is nothing to display..<Icon type="frown" />
+                </td>
+              </tr>
+            ) : (
+              renderMovieCards
+            )}
+          </tbody>
         </table>
       </div>
     );

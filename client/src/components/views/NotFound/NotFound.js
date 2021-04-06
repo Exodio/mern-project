@@ -25,7 +25,7 @@ class NotFound extends Component {
           </div>
         </div>
         <p className="tipsiz-text">
-          maybe you want to go <Link href="/">back ?</Link>
+          maybe you want to go <Link to="/">back ?</Link>
         </p>
       </div>
     );

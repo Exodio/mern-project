@@ -4,6 +4,8 @@ const router = express.Router();
 const { Like } = require("../models/Like");
 const { Dislike } = require("../models/Dislike");
 
+const { auth } = require("../middleware/auth");
+
 router.post("/getLikes", (req, res) => {
   let data = {};
 
@@ -40,7 +42,7 @@ router.post("/getDislikes", (req, res) => {
   });
 });
 
-router.post("/upLike", (req, res) => {
+router.post("/upLike", auth, (req, res) => {
   let data = {};
 
   if (req.body.movieId) {
@@ -66,7 +68,7 @@ router.post("/upLike", (req, res) => {
   });
 });
 
-router.post("/unLike", (req, res) => {
+router.post("/unLike", auth, (req, res) => {
   let data = {};
 
   if (req.body.movieId) {
@@ -84,7 +86,7 @@ router.post("/unLike", (req, res) => {
   });
 });
 
-router.post("/upDislike", (req, res) => {
+router.post("/upDislike", auth, (req, res) => {
   let data = {};
 
   if (req.body.movieId) {
@@ -110,7 +112,7 @@ router.post("/upDislike", (req, res) => {
   });
 });
 
-router.post("/unDislike", (req, res) => {
+router.post("/unDislike", auth, (req, res) => {
   let data = {};
 
   if (req.body.movieId) {

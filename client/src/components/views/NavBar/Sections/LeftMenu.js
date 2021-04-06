@@ -16,6 +16,9 @@ function LeftMenu(props) {
           <Menu.Item key="location">
             <Link to="/location">Location <Icon type="environment"/></Link>
           </Menu.Item>
+          <Menu.Item key="about">
+            <Link to="/about">About <Icon type="contacts"/></Link>
+          </Menu.Item>
       </SubMenu>
     </Menu>
   );
