@@ -15,15 +15,15 @@ import FavoritePage from "./views/FavoritePage/FavoritePage";
 import LocationPage from "./views/LocationPage/LocationPage";
 import AboutPage from "./views/AboutPage/AboutPage";
 // Additional features of the application
-import NotFound from "../components/views/NotFound/NotFound";
 import LoadingScreen from "./views/LoadingScreenPage/LoadingScreenPage";
+import NotFound from "../components/views/NotFound/NotFound";
 import Scroller from "../components/Scroller/ScrollToTop";
 
 function App() {
   const [Loading, setLoading] = useState(false);
 
   useEffect(() => {
-    setTimeout(() => setLoading(true), 30);
+    setTimeout(() => setLoading(true), 3000);
   }, []);
 
   return (
@@ -39,7 +39,7 @@ function App() {
               <Route path="/movie/:movieId" component={Auth(MovieDetailsPage, true)}/>
               <Route path="/favorite" component={Auth(FavoritePage, true)}/>
               <Route path="/location" component={Auth(LocationPage, true)}/>
-              <Route path="/about" component={Auth(AboutPage, false)}/>
+              <Route path="/about" component={Auth(AboutPage, null)}/>
               <Route component={Auth(NotFound, null)} />
             </Switch>
           </div>

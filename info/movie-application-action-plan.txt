@@ -131,5 +131,28 @@ Implement About Page feature and functionality
 -upload background image to a public API
 -list public URL to styles
 -add route to main app
+-implement contextAPI feature for theme change
+-refactor AboutPage component
+-create AboutApp component
+-create an onChangeThemeClickHandler function
+-set state for onChangeThemeClickhandler and validate currentTheme
+-bind this to current theme state
+-return Provider with context and value
+-create a Toolbar component
+-create a ThemedButton component
+-add a ButtonClickHandler with current context and the onChangeThemeClickhandler
+-create a ThemeContext component
+-create initial theme context(additionally display the name of the context)
+-create a AboutContext component, set current state and append useContext to current ThemeContext
+-place antd icon, react-router-dom link and create aboutContext style and content
+-validate theme state in each section
+-create a ButtonContext component
+-Add Consumer to the ThemeContext, list values, addOnlickHandler
+-validate backgroundColor via the theme values for the button
+-add button and icon from antd
+-add the ThemedButton contextType to ThemeContext in ButtonContext
+-add the buttonContext with the current context and the onChangeThemeClickHandler
+-list the ButtonContext to the Themed Button
+-list the AboutContext to the Themed Button
 -additional refactoring(add additional auth for BE routes, apply style fixes for favorites page)
-Resources used: https://reactrouter.com/web/guides/quick-start , https://ant.design/components/icon/ , https://postimages.org/ ;
+Resources used: https://reactrouter.com/web/guides/quick-start , https://ant.design/components/icon/ , https://postimages.org/ , https://reactjs.org/docs/context.html , https://reactjs.org/docs/faq-functions.html , https://reactjs.org/docs/handling-events.html ;

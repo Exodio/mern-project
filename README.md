@@ -12,7 +12,7 @@ The inspired exodioMovies Web App is built to assist you in keeping track and be
 
 2. :arrows_counterclockwise: The application is running on localhost:3000 and it will automatically load up on your browser.
 
-3. :bangbang: Remember to place your unique MongoDB key in server/config/dev.js in order to run the application accordingly.
+3. :bangbang: Remember to place your unique MongoDB key in server/config/dev.js in order to run the application accordingly(!only if it is not listed).
 
 ## :bookmark_tabs: Detailed Summary
 
@@ -29,7 +29,7 @@ The application is similar to a movies browser website, throughout which each us
 
 - Signing Up / Logging In / Signing Out;
 - Review the current time in live listed in the bottom of the web application;
-- View fetched movie data at the Landing page / Load more movies / Search for specific movie;
+- View fetched movie data at the Landing page / Load more movies / Search for specific movie / View About Page in navigation Menu, change text themes;
 - Get all the movies related information you need in one place;
 - View selected movie Details / Add selected movie to Favorite list / Remove movie from Favorite list / View movie Actors cast;
 - Share your experience with other users;
@@ -43,6 +43,7 @@ The application is similar to a movies browser website, throughout which each us
 - Browse through the Landing Page, which by default lists all of the latest Movies from an API.
 - Load More movies, once reviewed/or not, all of the already listed ones, navigate at the very bottom of the page, check your Current Time, while you are there, as well as Search for your desired movie in the Search Box. Navigate to the very top by clicking on the Scroll Button.
 - Redirect to the Home Page, by clicking on the Homepage Logo and in case you route to a non-existing path or to a user credentials required one, you will come across with the Not Found Page.
+- Review the representive About Page located in the section of the dropdown Menu, right next to the homepage logo, click on the theme changer for better reading experience, as you understand more about the application.
 
 2. :lock: **Private part** - only for logged in users. After successful registration using the given (by the user) unique credentials, you will be able to use the full functionality of the application:
 
