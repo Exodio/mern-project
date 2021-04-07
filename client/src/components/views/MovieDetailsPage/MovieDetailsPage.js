@@ -1,10 +1,14 @@
 import React, { useEffect, useState } from "react";
 
+import { Link } from "react-router-dom";
+
 import { Row, Collapse, Button, Icon } from "antd";
 
 import axios from "axios";
 
 import { API_KEY, API_URL, IMAGE_URL, IMAGE_SIZE } from "../../Config";
+
+import { useSelector } from "react-redux";
 
 import MainImage from "../../views/LandingPage/Sections/MainImage";
 import GridCard from "../../views/LandingPage/Sections/GridCard";
@@ -16,6 +20,8 @@ import Comments from "./Sections/Comments";
 import LikesDislikes from "./Sections/LikesDislikes";
 
 function MovieDetailPage(props) {
+  const user = useSelector(state => state.user);
+
   const movieId = props.match.params.movieId;
   
   const [Movie, setMovie] = useState([]);
@@ -82,74 +88,107 @@ function MovieDetailPage(props) {
 
   return (
     <div>
-      {/* Movie Main Image Component */}
-      {!LoadingForMovie ? (
-        <MainImage
-          image={`${IMAGE_URL}${IMAGE_SIZE}${Movie.backdrop_path}`}
-          title={Movie.original_title}
-          text={Movie.overview}
-        />
+      {user.userData && !user.userData.isAuth ? (
+        <div
+          style={{
+            width: "100%",
+            fontSize: "2rem",
+            height: "350px",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <p>
+            Please <Link to="/login"> Sign In <Icon type="login" /></Link> first in order to proceed...<Icon type="warning" />
+          </p>
+        </div>
       ) : (
-        <div>Loading...</div>
-      )}
-      {/* Movie Body */}
-      <div style={{ width: "85%", margin: "1rem auto" }}>
-        <div style={{ display: "flex", justifyContent: "flex-end" }}>
-          <Favorite
-            userFrom={localStorage.getItem("userId")}
-            movieInfo={Movie}
-            movieId={movieId}
-          />
-        </div>
-        {/* Likes and Dislikes */}
-      <div style={{ display: "flex", justifyContent: "center" }}>
-        <Button onClick={toggleVotesView}>Toggle Vote View<Icon type="right" /></Button>
-        {VotesToggle && (
-          <Collapse style={{margin:"5px"}}>
-            <LikesDislikes
-              movie
-              movieId={movieId}
-              userId={localStorage.getItem("userId")}
+        <React.Fragment>
+          {/* Movie Main Image Component */}
+          {!LoadingForMovie ? (
+            <MainImage
+              image={`${IMAGE_URL}${IMAGE_SIZE}${Movie.backdrop_path}`}
+              title={Movie.original_title}
+              text={Movie.overview}
             />
-          </Collapse>
-        )}
-      </div>
-        {/* Movie Details */}
-        {!LoadingForMovie ? (
-          <MovieDetail movie={Movie} />
-        ) : (
-          <div>Loading...</div>
-        )}
-        {/* Grid Cards for Cast */}
-        <div style={{ display: "flex", justifyContent: "center", margin: "2rem" }}>
-          <Button onClick={toggleActorView}>Toggle Actor View<Icon type="down" /></Button>
-        </div>
-        {ActorToggle && (
-          <Row gutter={[16, 16]}>
-            {!LoadingForCasts ? (
-              Casts.map((cast) =>
-                  cast.profile_path && (
-                    <GridCard
-                      actor
-                      image={cast.profile_path}
-                      characterName={cast.characterName}
-                    />
-                  )
-              )
+          ) : (
+            <div>Loading...</div>
+          )}
+          {/* Movie Body */}
+          <div style={{ width: "85%", margin: "1rem auto" }}>
+            <div style={{ display: "flex", justifyContent: "flex-end" }}>
+              <Favorite
+                userFrom={localStorage.getItem("userId")}
+                movieInfo={Movie}
+                movieId={movieId}
+              />
+            </div>
+            {/* Likes and Dislikes */}
+            <div style={{ display: "flex", justifyContent: "center" }}>
+              <Button onClick={toggleVotesView}>
+                Toggle Vote View
+                <Icon type="right" />
+              </Button>
+              {VotesToggle && (
+                <Collapse style={{ margin: "5px" }}>
+                  <LikesDislikes
+                    movie
+                    movieId={movieId}
+                    userId={localStorage.getItem("userId")}
+                  />
+                </Collapse>
+              )}
+            </div>
+            {/* Movie Details */}
+            {!LoadingForMovie ? (
+              <MovieDetail movie={Movie} />
             ) : (
               <div>Loading...</div>
             )}
-          </Row>
-        )}
-        <br />
-        {/* Comments Section */}
-        <Comments
-          movieTitle={Movie.original_title}
-          CommentLists={CommentLists}
-          postId={movieId}
-          refreshFunction={updateComment}
-        />
-      </div>
+            {/* Grid Cards for Cast */}
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                margin: "2rem",
+              }}
+            >
+              <Button onClick={toggleActorView}>
+                Toggle Actor View
+                <Icon type="down" />
+              </Button>
+            </div>
+            {ActorToggle && (
+              <Row gutter={[16, 16]}>
+                {!LoadingForCasts ? (
+                  Casts.map(
+                    (cast) =>
+                      cast.profile_path && (
+                        <GridCard
+                          actor
+                          image={cast.profile_path}
+                          characterName={cast.characterName}
+                        />
+                      )
+                  )
+                ) : (
+                  <div>Loading...</div>
+                )}
+              </Row>
+            )}
+            <br />
+            {/* Comments Section */}
+            <Comments
+              movieTitle={Movie.original_title}
+              CommentLists={CommentLists}
+              postId={movieId}
+              refreshFunction={updateComment}
+            />
+          </div>
+        </React.Fragment>
+      )}
     </div>
   );
 };

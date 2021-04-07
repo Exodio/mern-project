@@ -158,7 +158,7 @@ function LoginPage(props) {
                     Log in
                   </Button>
                 </div>
-                Or <Link to="/register">Register now!</Link>
+                Or <Link to="/register">Register <Icon type="check" /></Link> in case you don't have an account yet!
               </Form.Item>
             </Form>
           </div>

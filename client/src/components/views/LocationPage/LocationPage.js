@@ -1,5 +1,7 @@
 import React, { useState, useRef, useCallback } from "react";
 
+import { Link } from "react-router-dom";
+
 import MapGL, { GeolocateControl, NavigationControl, FullscreenControl } from "react-map-gl";
 
 import Geocoder from "react-map-gl-geocoder";
@@ -9,6 +11,8 @@ import "mapbox-gl/dist/mapbox-gl.css";
 import "react-map-gl-geocoder/dist/mapbox-gl-geocoder.css";
 
 import { Typography, Icon } from "antd";
+
+import { useSelector } from "react-redux";
 
 const config = require("../../../config/key");
 
@@ -30,6 +34,8 @@ const fullscreenControlStyle = {
 };
 
 function LocationPage() {
+  const user = useSelector(state => state.user);
+
   const [Viewport, setViewport] = useState({
     latitude: 42.6978634,
     longitude: 23.3221789,
@@ -56,46 +62,67 @@ function LocationPage() {
       >
         <Icon type="eye" /> Navigate Yourself The Nearest Cinema Center
       </Title>
-      <div
-        ref={geocoderContainerRef}
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          color: "blue",
-          marginBottom: "10px",
-        }}
-      />
-      <MapGL
-        ref={mapRef}
-        {...Viewport}
-        {...mapStyle}
-        mapStyle="mapbox://styles/exodio/ckmyowl6f20ec17o803gqtxh7"
-        onViewportChange={handleViewportChange}
-        mapboxApiAccessToken={config.mapboxAPI}
-      >
-        <Geocoder
-          mapRef={mapRef}
-          containerRef={geocoderContainerRef}
-          onViewportChange={handleViewportChange}
-          mapboxApiAccessToken={config.mapboxAPI}
-          position="bottom-left"
-        />
-        <GeolocateControl
-          style={geolocateControlStyle}
-          positionOptions={{ enableHighAccuracy: true }}
-          trackUserLocation={true}
-          auto
-        />
-        <FullscreenControl style={fullscreenControlStyle} />
-        <NavigationControl
+      <hr />
+      {user.userData && !user.userData.isAuth ? (
+        <div
           style={{
-            top: "80px",
-            left: "8px",
-            cursor: "pointer",
+            width: "100%",
+            fontSize: "2rem",
+            height: "350px",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "center",
           }}
-        />
-      </MapGL>
+        >
+          <p>
+            Please <Link to="/login"> Sign In <Icon type="login" /></Link> first in order to proceed...<Icon type="warning" />
+          </p>
+        </div>
+      ) : (
+        <React.Fragment>
+          <div
+            ref={geocoderContainerRef}
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              color: "blue",
+              marginBottom: "10px",
+            }}
+          />
+          <MapGL
+            ref={mapRef}
+            {...Viewport}
+            {...mapStyle}
+            mapStyle="mapbox://styles/exodio/ckmyowl6f20ec17o803gqtxh7"
+            onViewportChange={handleViewportChange}
+            mapboxApiAccessToken={config.mapboxAPI}
+          >
+            <Geocoder
+              mapRef={mapRef}
+              containerRef={geocoderContainerRef}
+              onViewportChange={handleViewportChange}
+              mapboxApiAccessToken={config.mapboxAPI}
+              position="bottom-left"
+            />
+            <GeolocateControl
+              style={geolocateControlStyle}
+              positionOptions={{ enableHighAccuracy: true }}
+              trackUserLocation={true}
+              auto
+            />
+            <FullscreenControl style={fullscreenControlStyle} />
+            <NavigationControl
+              style={{
+                top: "80px",
+                left: "8px",
+                cursor: "pointer",
+              }}
+            />
+          </MapGL>
+        </React.Fragment>
+      )}
     </div>
   );
 };
