@@ -128,7 +128,7 @@ function LandingPage() {
         <div style={{ display: "flex", justifyContent: "center" }}>
           <Button onClick={handleOnClickLoadMore}>
             Show More
-            <Icon type="loading" />
+            <Icon type="sync" />
           </Button>
         </div>
       </div>
