@@ -4,7 +4,11 @@ import { Tooltip, Icon } from "antd";
 
 import axios from "axios";
 
+import { useSelector } from "react-redux";
+
 function LikesDislikes(props) {
+  const user = useSelector(state => state.user);
+
   const [Likes, setLikes] = useState(0);
   const [Dislikes, setDislikes] = useState(0);
 
@@ -61,6 +65,10 @@ function LikesDislikes(props) {
   }, []);
 
   const onLike = () => {
+    if (user.userData && !user.userData.isAuth) {
+      return alert("Please Log In first...!");
+    }
+
     if (LikeAction === null) {
       axios
         .post("/api/likes/upLike", data)
@@ -94,6 +102,10 @@ function LikesDislikes(props) {
   };
 
   const onDislike = () => {
+    if (user.userData && !user.userData.isAuth) {
+      return alert("Please Log In first...!");
+    }
+    
     if (DislikeAction !== null) {
       axios
         .post("/api/likes/unDislike", data)

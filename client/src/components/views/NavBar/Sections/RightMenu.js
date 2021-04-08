@@ -37,6 +37,9 @@ function RightMenu(props) {
   } else {
     return (
       <Menu mode={props.mode}>
+        <Menu.Item key="welcome">
+          <Link to="/favorite">Welcome, {user.userData ? user.userData.name : ""} <Icon type="user"/></Link>
+        </Menu.Item>
         <Menu.Item key="logout">
           <Link to="/" onClick={logoutHandler}>Logout <Icon type="logout"/></Link>
         </Menu.Item>

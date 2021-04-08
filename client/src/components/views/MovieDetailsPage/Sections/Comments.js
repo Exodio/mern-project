@@ -24,6 +24,10 @@ function Comments(props) {
   const onSubmit = (e) => {
     e.preventDefault();
 
+    if (user.userData && !user.userData.isAuth) {
+      return alert("Please Log In first...!");
+    }
+
     const commentData = {
       content: Comment,
       writer: user.userData._id,

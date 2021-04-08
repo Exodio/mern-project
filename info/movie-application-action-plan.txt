@@ -154,5 +154,14 @@ Implement About Page feature and functionality
 -add the buttonContext with the current context and the onChangeThemeClickHandler
 -list the ButtonContext to the Themed Button
 -list the AboutContext to the Themed Button
--additional refactoring(add additional auth for BE routes, apply style fixes for favorites page)
 Resources used: https://reactrouter.com/web/guides/quick-start , https://ant.design/components/icon/ , https://postimages.org/ , https://reactjs.org/docs/context.html , https://reactjs.org/docs/faq-functions.html , https://reactjs.org/docs/handling-events.html ;
+
+Apply additional refactoring 
+-add additional auth for the backend routes
+-apply style fixes for Favorites Page
+-edit Auth path in main App
+-apply additional validations for user state in common page sections
+-display the user's first name as a profile in NavBar depending on current state
+-link to to the Private Favorites section on user profile section
+-move assets folder to the public folder(as it is not being used, but rather kept as a backup)
+-add additional information to README.MD

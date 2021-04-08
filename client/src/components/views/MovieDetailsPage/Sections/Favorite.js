@@ -4,7 +4,11 @@ import { Button, Icon } from "antd";
 
 import axios from "axios";
 
+import { useSelector } from "react-redux";
+
 function Favorite(props) {
+  const user = useSelector(state => state.user);
+
   const movieId = props.movieId;
   const userFrom = props.userFrom;
   const movieTitle = props.movieInfo.title;
@@ -23,6 +27,11 @@ function Favorite(props) {
   const [Favorited, setFavorited] = useState(false);
 
   const onClickFavorite = () => {
+
+    if (user.userData && !user.userData.isAuth) {
+      return alert("Please Log In first...!");
+    }
+
     if (Favorited) {
       axios
         .post("/api/favorites/removeFromFavorite", movieData)
