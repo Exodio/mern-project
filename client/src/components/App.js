@@ -18,6 +18,7 @@ import AboutPage from "./views/AboutPage/AboutPage";
 import LoadingScreen from "./views/LoadingScreenPage/LoadingScreenPage";
 import NotFound from "../components/views/NotFound/NotFound";
 import Scroller from "../components/Scroller/ScrollToTop";
+import CustomErrorBoundary from "../components/CustomErrorBoundary/CustomErrorBoundary";
 
 function App() {
   const [Loading, setLoading] = useState(false);
@@ -31,19 +32,21 @@ function App() {
       {Loading === true ? (
         <React.Fragment>
           <NavBar />
-          <div style={{ paddingTop: "75px", minHeight: "calc(100vh - 80px)" }}>
-            <Switch>
-              <Route exact path="/" component={Auth(LandingPage, null)} />
-              <Route path="/login" component={Auth(LoginPage, false)} />
-              <Route path="/register" component={Auth(RegisterPage, false)}/>
-              <Route path="/movie/:movieId" component={Auth(MovieDetailsPage, true)}/>
-              <Route path="/favorite" component={Auth(FavoritePage, null)}/>
-              <Route path="/location" component={Auth(LocationPage, null)}/>
-              <Route path="/about" component={Auth(AboutPage, null)}/>
-              <Route component={Auth(NotFound, null)} />
-            </Switch>
-          </div>
-          <Scroller />
+            <CustomErrorBoundary>
+              <div style={{ paddingTop: "75px", minHeight: "calc(100vh - 80px)" }}>
+                <Switch>
+                  <Route exact path="/" component={Auth(LandingPage, null)} />
+                  <Route path="/login" component={Auth(LoginPage, false)} />
+                  <Route path="/register" component={Auth(RegisterPage, false)}/>
+                  <Route path="/movie/:movieId" component={Auth(MovieDetailsPage, true)}/>
+                  <Route path="/favorite" component={Auth(FavoritePage, null)}/>
+                  <Route path="/location" component={Auth(LocationPage, null)}/>
+                  <Route path="/about" component={Auth(AboutPage, null)}/>
+                  <Route component={Auth(NotFound, null)} />
+                </Switch>
+              </div>
+            </CustomErrorBoundary>
+            <Scroller />
           <Footer />
         </React.Fragment>
       ) : (
