@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
 
-import { Link } from "react-router-dom";
-
 import { Row, Collapse, Button, Icon } from "antd";
 
 import axios from "axios";
