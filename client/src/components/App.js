@@ -36,7 +36,7 @@ function App() {
               <Route exact path="/" component={Auth(LandingPage, null)} />
               <Route path="/login" component={Auth(LoginPage, false)} />
               <Route path="/register" component={Auth(RegisterPage, false)}/>
-              <Route path="/movie/:movieId" component={Auth(MovieDetailsPage, null)}/>
+              <Route path="/movie/:movieId" component={Auth(MovieDetailsPage, true)}/>
               <Route path="/favorite" component={Auth(FavoritePage, null)}/>
               <Route path="/location" component={Auth(LocationPage, null)}/>
               <Route path="/about" component={Auth(AboutPage, null)}/>

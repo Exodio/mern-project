@@ -89,21 +89,7 @@ function MovieDetailPage(props) {
   return (
     <div>
       {user.userData && !user.userData.isAuth ? (
-        <div
-          style={{
-            width: "100%",
-            fontSize: "2rem",
-            height: "350px",
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
-          <p>
-            Please <Link to="/login"> Sign In <Icon type="login" /></Link> first in order to proceed...<Icon type="warning" />
-          </p>
-        </div>
+      <React.Fragment>{props.history.push("/login")}</React.Fragment>
       ) : (
         <React.Fragment>
           {/* Movie Main Image Component */}
